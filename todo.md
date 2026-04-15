@@ -1,18 +1,30 @@
 # Todo List
 
-## Phase 0: Foundation (Current)
+## Phase 0: Foundation (Completed)
 - [x] Initialize project documentation (`PROJECT_DEFINITION.md`, `DEVELOPMENT_LOG.md`)
 - [x] Establish basic "Mindful" theme (colors, typography) in CSS
 - [x] Replace Vite default landing page with a Calm Dashboard
 - [x] Implement basic fluid animations for entry
 
-## Phase 1: Mindful Features
+## Phase 1: Mindful Features (Completed)
 - [x] Implement 'Daily Moment of Peace' (Random quotes/prompts)
 - [x] Create 'Mindful Breathing' visual guide
 - [x] Develop Soft-Theme Engine (Time-based color shifts)
-- [ ] Implement 'Today's Focus' (Intentional task list)
+- [x] Implement 'Today's Focus' (Intentional task list)
 
-## Phase 2: Expansion
-- [ ] Interactive Recipe Book (Mindful cooking)
-- [ ] Ambient Soundscapes
+## Phase 2: Expansion (Completed)
+- [x] Implement 'Mindful Rituals' (Bridge to Recipe Book)
+- [x] Implement 'Mindful Recipe Suggestion'
+- [x] Interactive Recipe Book (Full implementation with Mindful Cooking Mode)
+- [x] Ambient Soundscapes
+- [x] Daily Gratitude Log
+- [x] Implement 'Daily Intention Setting'
+- [x] Implement 'Presence Check' Grounding Prompts
 - [ ] Integration with Home Sensors (if available)
+
+## Phase 3: Polish & Serenity (Current)
+- [x] Restore and harmonize global styles in `App.css`
+- [x] Add inviting "soft-pulse" animation to Breathing Guide trigger
+- [ ] Implement weather-aware theme shifts (e.g., softer tones for rainy days)
+- [ ] Create "Digital Declutter" mode (hides non-essential UI for meditation)
+- [ ] Add a "Daily Zen" rotating footer message

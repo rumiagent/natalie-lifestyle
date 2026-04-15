@@ -1,13 +1,22 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import { MINDFULNESS_MOMENTS, type MindfulnessMoment } from './mindfulness-data'
+import { MINDFULNESS_MOMENTS, ZEN_MESSAGES, type MindfulnessMoment } from './mindfulness-data'
+import DailyIntention from './components/DailyIntention'
+import PresencePrompt from './components/PresencePrompt'
 import BreathingGuide from './components/BreathingGuide'
+import TodayFocus from './components/TodayFocus'
+import MindfulRituals from './components/MindfulRituals'
+import MindfulRecipes from './components/MindfulRecipes'
+import GratitudeLog from './components/GratitudeLog'
+import AmbientSoundscapes from './components/AmbientSoundscapes'
 
 function App() {
   const [time, setTime] = useState(new Date())
   const [moment, setMoment] = useState<MindfulnessMoment | null>(null)
   const [isTransitioning, setIsTransitioning] = useState(false)
   const [showBreathing, setShowBreathing] = useState(false)
+  const [zenMessage, setZenMessage] = useState(ZEN_MESSAGES[0])
+  const [zenTransitioning, setZenTransitioning] = useState(false)
 
   useEffect(() => {
     const timer = setInterval(() => setTime(new Date()), 1000)
@@ -17,6 +26,17 @@ function App() {
     setMoment(MINDFULNESS_MOMENTS[dayOfYear % MINDFULNESS_MOMENTS.length])
     
     return () => clearInterval(timer)
+  }, [])
+
+  useEffect(() => {
+    const rotateZen = setInterval(() => {
+      setZenTransitioning(true)
+      setTimeout(() => {
+        setZenMessage(ZEN_MESSAGES[Math.floor(Math.random() * ZEN_MESSAGES.length)])
+        setZenTransitioning(false)
+      }, 500)
+    }, 30000)
+    return () => clearInterval(rotateZen)
   }, [])
 
   useEffect(() => {
@@ -88,10 +108,20 @@ function App() {
           </section>
         )}
 
+        <DailyIntention />
+        <PresencePrompt />
+        <TodayFocus />
+        <MindfulRituals />
+        <MindfulRecipes />
+        <GratitudeLog />
+        <AmbientSoundscapes />
+
         <footer style={{ opacity: 0.6, fontSize: '0.9rem', marginTop: '2rem' }}>
-          <p style={{ marginBottom: '1rem' }}>Take a deep breath. You are exactly where you need to be.</p>
+          <p className={`zen-message ${zenTransitioning ? 'fade-out' : 'fade-in-text'}`} style={{ marginBottom: '1rem' }}>
+            {zenMessage}
+          </p>
           <button 
-            className="moment-btn" 
+            className="moment-btn breathing-btn-pulse" 
             onClick={() => setShowBreathing(true)}
             style={{ opacity: 0.7 }}
           >
