@@ -1,0 +1,149 @@
+:root {
+  --text: #5C5852;
+  --text-h: #4A4741;
+  --bg: #FDFBF7;
+  --border: #E8E4DB;
+  --code-bg: #F4F1EA;
+  --accent: #A3B18A;
+  --accent-bg: rgba(163, 177, 138, 0.1);
+  --accent-border: rgba(163, 177, 138, 0.5);
+  --social-bg: rgba(244, 243, 236, 0.5);
+  --shadow:
+    rgba(0, 0, 0, 0.03) 0 10px 15px -3px, rgba(0, 0, 0, 0.02) 0 4px 6px -2px;
+
+  --sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --heading: 'Playfair Display', serif, system-ui;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 18px/160% var(--sans);
+  letter-spacing: 0.02em;
+  color-scheme: light;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+/* Soft-Theme Engine */
+.theme-dawn {
+  --bg: #FAF7F2;
+  --text: #6B655B;
+  --text-h: #5A554B;
+  --accent: #D4B996;
+  --accent-bg: rgba(212, 185, 150, 0.1);
+  --accent-border: rgba(212, 185, 150, 0.5);
+  --border: #EBE4D8;
+}
+
+.theme-noon {
+  --bg: #FDFBF7;
+  --text: #5C5852;
+  --text-h: #4A4741;
+  --accent: #A3B18A;
+  --accent-bg: rgba(163, 177, 138, 0.1);
+  --accent-border: rgba(163, 177, 138, 0.5);
+  --border: #E8E4DB;
+}
+
+.theme-dusk {
+  --bg: #F2F0F7;
+  --text: #5E5B6D;
+  --text-h: #4D4A5C;
+  --accent: #BFA8C3;
+  --accent-bg: rgba(191, 168, 195, 0.1);
+  --accent-border: rgba(191, 168, 195, 0.5);
+  --border: #E4E2ED;
+}
+
+.theme-midnight {
+  --bg: #2C2B28;
+  --text: #B8B4B0;
+  --text-h: #E8E4DB;
+  --border: #3D3C39;
+  --code-bg: #353431;
+  --accent: #8A9A7B;
+  --accent-bg: rgba(138, 154, 123, 0.15);
+  --accent-border: rgba(138, 154, 123, 0.5);
+  --social-bg: rgba(61, 60, 57, 0.5);
+  --shadow: rgba(0, 0, 0, 0.3) 0 10px 15px -3px, rgba(0, 0, 0, 0.2) 0 4px 6px -2px;
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Keep system dark mode as a fallback or base if no time-theme is active */
+    --text: #B8B4B0;
+    --text-h: #E8E4DB;
+    --bg: #2C2B28;
+    --border: #3D3C39;
+    --code-bg: #353431;
+    --accent: #8A9A7B;
+    --accent-bg: rgba(138, 154, 123, 0.15);
+    --accent-border: rgba(138, 154, 123, 0.5);
+    --social-bg: rgba(61, 60, 57, 0.5);
+    --shadow:
+      rgba(0, 0, 0, 0.3) 0 10px 15px -3px, rgba(0, 0, 0, 0.2) 0 4px 6px -2px;
+  }
+}
+
+#root {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 2rem;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  transition: background-color 2s ease, color 2s ease;
+}
+
+h1,
+h2 {
+  font-family: var(--heading);
+  font-weight: 400;
+  color: var(--text-h);
+}
+
+h1 {
+  font-size: 48px;
+  letter-spacing: -0.02em;
+  margin: 1rem 0;
+  @media (max-width: 1024px) {
+    font-size: 32px;
+  }
+}
+
+h2 {
+  font-size: 24px;
+  line-height: 120%;
+  margin: 0 0 1rem;
+}
+
+p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.fade-in {
+  animation: fadeIn 2s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

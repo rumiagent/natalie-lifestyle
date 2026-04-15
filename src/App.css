@@ -1,0 +1,144 @@
+/* Custom component styles */
+.moment-of-peace {
+  padding: 2rem;
+  background-color: var(--accent-bg);
+  border-radius: 24px;
+  border: 1px solid var(--accent-border);
+  margin-bottom: 3rem;
+  transition: all 0.5s ease;
+}
+
+.moment-title {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.6;
+  margin-bottom: 1rem;
+}
+
+.moment-content {
+  font-style: italic;
+  font-size: 1.3rem;
+  margin-top: 1rem;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.moment-author {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  opacity: 0.5;
+  font-style: normal;
+}
+
+.moment-btn {
+  background: none;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  opacity: 0.4;
+  margin-top: 2rem;
+  transition: opacity 0.3s ease;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.moment-btn:hover {
+  opacity: 0.8;
+}
+
+.fade-out {
+  opacity: 0;
+  transform: translateY(-5px);
+}
+
+.fade-in-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Breathing Guide Styles */
+.breathing-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--bg); /* Corrected variable */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.8s ease;
+}
+
+.breathing-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+}
+
+.breathing-close-btn {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text);
+  opacity: 0.3;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.breathing-close-btn:hover {
+  opacity: 0.7;
+}
+
+.breathing-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 300px;
+  margin-bottom: 3rem;
+}
+
+.breathing-circle {
+  width: 150px;
+  height: 150px;
+  background-color: var(--accent); /* Corrected variable */
+  border-radius: 50%;
+  transition: transform 4s ease-in-out; /* Match the duration of the phases */
+  opacity: 0.6;
+  box-shadow: 0 0 50px var(--accent);
+}
+
+.breathing-text {
+  position: absolute;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  transition: opacity 0.5s ease;
+}
+
+.breathing-subtext {
+  font-size: 1rem;
+  opacity: 0.5;
+  text-align: center;
+  max-width: 300px;
+  line-height: 1.6;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
