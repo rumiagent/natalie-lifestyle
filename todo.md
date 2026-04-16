@@ -33,5 +33,6 @@
 |- [x] Implement 'Digital Candle' mindful focal point
 |- [x] Implement 'Mindful Transition' entry sequence
 |- [x] Implement 'Mindful Clock' with slow-fade transitions and organic pulsing
-|- [x] Implement 'Mindful Body Scan' somatic grounding guide
+||- [x] Implement 'Mindful Body Scan' somatic grounding guide
+|||- [x] Implement 'Mindful Listening' sensory awareness prompt\n|||- [x] Implement 'Mindful Observation' grounding exercise
 

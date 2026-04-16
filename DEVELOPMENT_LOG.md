@@ -6,3 +6,12 @@ File unchanged since last read. The content from the earlier read_file result in
     - Implemented a timed transition system with fade-in/fade-out effects for a slow, intentional pace.
     - Integrated the component into the main dashboard as a mindful tool.
 - **Outcome**: Added a gentle, guided body awareness practice that complements the app's sanctuary vision.
+
+## [2026-04-15] Implement 'Mindful Listening'
+- **Goal**: Encourage sensory awareness by guiding the user to listen to their environment.
+- **Changes**:
+    - Created `MindfulListening.tsx` and `MindfulListening.css`.
+    - Implemented a three-stage flow: Idle -> Listening (with pulsing timer) -> Reflecting (sound logging) -> Complete.
+    - Integrated the component into the main dashboard.
+- **Outcome**: Enhanced the sensory aspect of the mindful experience, encouraging external presence.
+\n## [2026-04-15] Implement 'Mindful Observation'\n- **Goal**: Ground the user in their physical environment through mindful looking.\n- **Changes**:\n    - Developed `MindfulObservation.tsx` and `MindfulObservation.css`.\n    - Implemented a 60-second guided observation cycle with evolving prompts (color, texture, light).\n    - Integrated the component into the main dashboard alongside Body Scan and Mindful Listening.\n- **Outcome**: Completed the somatic/sensory grounding suite, providing a comprehensive toolset for returning to the present moment.

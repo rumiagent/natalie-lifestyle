@@ -14,6 +14,7 @@ import EphemeralNotes from './components/EphemeralNotes'
 import DigitalCandle from './components/DigitalCandle'
 import MindfulBodyScan from './components/MindfulBodyScan'
 import MindfulListening from './components/MindfulListening'
+import MindfulObservation from './components/MindfulObservation'
 import MindfulClock from './components/MindfulClock'
 import { WeatherService, type WeatherData } from './services/weatherService'
 
@@ -150,6 +151,7 @@ function App() {
             <EphemeralNotes />
             <MindfulBodyScan />
             <MindfulListening />
+            <MindfulObservation />
             <DigitalCandle />
             <AmbientSoundscapes />
           </div>
