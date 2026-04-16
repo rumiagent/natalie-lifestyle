@@ -16,6 +16,7 @@ import ZenGarden from './components/ZenGarden'
 import MindfulBodyScan from './components/MindfulBodyScan'
 import MindfulListening from './components/MindfulListening'
 import MindfulObservation from './components/MindfulObservation'
+import TeaCeremony from './components/TeaCeremony'
 import SerenityTimer from './components/SerenityTimer'
 import MindfulClock from './components/MindfulClock'
 import MindfulWindDown from './components/MindfulWindDown'
@@ -161,6 +162,7 @@ function App() {
             <MindfulBodyScan />
             <MindfulListening />
             <MindfulObservation />
+            <TeaCeremony />
             <SerenityTimer />
             <DigitalCandle />
             <AmbientSoundscapes />

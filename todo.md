@@ -39,3 +39,6 @@
 - [x] Implement 'Mindful Observation' grounding exercise
 - [x] Implement 'Mindful Interaction' (Click-triggered gentle ripples)
 - [x] Implement 'Mindful Wind-Down' gentle evening transition sequence
+- [x] Implement 'Serenity Timer' for intentional focus
+- [x] Implement 'Digital Tea Ceremony' interactive ritual
+
