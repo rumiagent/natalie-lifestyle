@@ -1,0 +1,88 @@
+.mood-palette-container {
+  margin: 2rem auto;
+  padding: 1.5rem;
+  border-radius: 24px;
+  background: var(--social-bg);
+  border: 1px solid var(--border);
+  max-width: 400px;
+  text-align: center;
+  transition: all 0.5s ease;
+}
+
+.mood-palette-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.5;
+  margin-bottom: 1rem;
+  font-family: var(--sans);
+}
+
+.mood-palette-options {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.mood-btn {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 0.5rem 1rem;
+  border-radius: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.mood-btn:hover {
+  opacity: 1;
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.mood-btn.active {
+  opacity: 1;
+  background: var(--accent-bg);
+  border-color: var(--accent);
+  box-shadow: 0 4px 12px var(--accent-bg);
+}
+
+.mood-icon {
+  font-size: 1rem;
+}
+
+.mood-text {
+  font-weight: 400;
+}
+
+/* Mood Overrides */
+.mood-radiant {
+  --accent: #E9C46A;
+  --accent-bg: rgba(233, 196, 106, 0.15);
+  --accent-border: rgba(233, 196, 106, 0.5);
+  --bg: #FFFDF5;
+  --border: #F2EAD3;
+}
+
+.mood-deep {
+  --accent: #8D99AE;
+  --accent-bg: rgba(141, 153, 174, 0.15);
+  --accent-border: rgba(141, 153, 174, 0.5);
+  --bg: #F1F3F5;
+  --border: #E2E4E6;
+}
+
+.mood-earth {
+  --accent: #B7B7A4;
+  --accent-bg: rgba(183, 183, 164, 0.15);
+  --accent-border: rgba(183, 183, 164, 0.5);
+  --bg: #F9F7F2;
+  --border: #EAE7DE;
+}

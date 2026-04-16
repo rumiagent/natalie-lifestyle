@@ -28,6 +28,8 @@ import MindfulWindow from './components/MindfulWindow'
 import CelestialCompass from './components/CelestialCompass'
 import RippleEffect from './components/RippleEffect'
 import ReflectionOrb from './components/ReflectionOrb'
+import MoodPalette, { type Mood } from './components/MoodPalette'
+
 import WaterReminder from './components/WaterReminder'
 import MindfulStillness from './components/MindfulStillness'
 import { WeatherService, type WeatherData } from './services/weatherService'
@@ -43,6 +45,7 @@ function App() {
   const [showWindow, setShowWindow] = useState(false)
   const [showSomatic, setShowSomatic] = useState(false)
   const [showReflection, setShowReflection] = useState(false)
+  const [mood, setMood] = useState<Mood>('serene')
   const [zenMessage, setZenMessage] = useState(ZEN_MESSAGES[0])
   const [zenTransitioning, setZenTransitioning] = useState(false)
   const [weather, setWeather] = useState<WeatherData | null>(null)
@@ -103,7 +106,7 @@ function App() {
     else if (month >= 8 && month <= 10) season = 'season-autumn';
     else season = 'season-winter';
     
-    document.body.className = `${theme} ${season}`
+    document.body.className = `${theme} ${season} mood-${mood}`
   }, [time, weather])
 
   const refreshMoment = () => {
@@ -189,6 +192,7 @@ function App() {
             <DailyIntention />
             <PresencePrompt />
             <TodayFocus />
+            <MoodPalette mood={mood} setMood={setMood} />
             <MindfulRituals />
             <MindfulRecipes />
             <GratitudeLog />
