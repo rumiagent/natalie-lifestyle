@@ -12,10 +12,12 @@ import GratitudeLog from './components/GratitudeLog'
 import AmbientSoundscapes from './components/AmbientSoundscapes'
 import EphemeralNotes from './components/EphemeralNotes'
 import DigitalCandle from './components/DigitalCandle'
+import ZenGarden from './components/ZenGarden'
 import MindfulBodyScan from './components/MindfulBodyScan'
 import MindfulListening from './components/MindfulListening'
 import MindfulObservation from './components/MindfulObservation'
 import MindfulClock from './components/MindfulClock'
+import MindfulWindDown from './components/MindfulWindDown'
 import RippleEffect from './components/RippleEffect'
 import { WeatherService, type WeatherData } from './services/weatherService'
 
@@ -26,6 +28,7 @@ function App() {
   const [isTransitioning, setIsTransitioning] = useState(false)
   const [isDecluttered, setIsDecluttered] = useState(false)
   const [showBreathing, setShowBreathing] = useState(false)
+  const [isWindDownActive, setIsWindDownActive] = useState(false)
   const [zenMessage, setZenMessage] = useState(ZEN_MESSAGES[0])
   const [zenTransitioning, setZenTransitioning] = useState(false)
   const [weather, setWeather] = useState<WeatherData | null>(null)
@@ -72,7 +75,6 @@ function App() {
       theme = 'theme-midnight'
     }
 
-    // Override with weather theme if available and applicable
     if (weather) {
       const weatherTheme = WeatherService.getThemeClass(weather.condition);
       if (weatherTheme) {
@@ -108,6 +110,10 @@ function App() {
     <>
       {!hasEntered && <MindfulEntry onComplete={() => setHasEntered(true)} />}
       <RippleEffect />
+      <MindfulWindDown 
+        isActive={isWindDownActive} 
+        onClose={() => setIsWindDownActive(false)} 
+      />
       <div className={`fade-in ${hasEntered ? '' : 'hidden-entry'}`}>
         <div className="presence-ripple"></div>
         <div className="presence-ripple-secondary"></div>
@@ -126,7 +132,6 @@ function App() {
           <MindfulClock time={time} />
           <h1>{getGreeting()}, Natalie.</h1>
         </header>
-
         <main style={{ maxWidth: '500px', textAlign: 'center' }} className={isDecluttered ? 'decluttered-main' : ''}>
           {moment && (
             <section className="moment-of-peace">
@@ -151,6 +156,7 @@ function App() {
             <MindfulRecipes />
             <GratitudeLog />
             <EphemeralNotes />
+            <ZenGarden />
             <MindfulBodyScan />
             <MindfulListening />
             <MindfulObservation />
@@ -164,13 +170,22 @@ function App() {
                 {zenMessage}
               </p>
             </div>
-            <button 
-              className="moment-btn breathing-btn-pulse" 
-              onClick={() => setShowBreathing(true)}
-              style={{ opacity: 0.7 }}
-            >
-              Begin Mindful Breathing
-            </button>
+            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
+              <button 
+                className="moment-btn breathing-btn-pulse" 
+                onClick={() => setShowBreathing(true)}
+                style={{ opacity: 0.7 }}
+              >
+                Begin Mindful Breathing
+              </button>
+              <button 
+                className="moment-btn" 
+                onClick={() => setIsWindDownActive(true)}
+                style={{ opacity: 0.7 }}
+              >
+                Begin Wind-Down
+              </button>
+            </div>
           </footer>
         </main>
       </div>

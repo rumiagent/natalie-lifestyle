@@ -1,0 +1,42 @@
+.wind-down-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: background-color 3s ease-in-out;
+  background-color: rgba(40, 40, 40, 0);
+  cursor: pointer;
+  padding: 2rem;
+  text-align: center;
+}
+
+.wind-down-overlay.active {
+  background-color: rgba(20, 20, 20, 0.95);
+}
+
+.wind-down-content {
+  max-width: 600px;
+  color: #e0dcd5;
+  font-family: 'Georgia', serif;
+  font-size: 1.5rem;
+  line-height: 1.6;
+  transition: opacity 2s ease-in-out;
+  opacity: 0;
+}
+
+.wind-down-content.visible {
+  opacity: 1;
+}
+
+.wind-down-footer {
+  position: absolute;
+  bottom: 2rem;
+  font-size: 0.9rem;
+  color: rgba(224, 220, 213, 0.5);
+  font-family: 'Inter', sans-serif;
+}

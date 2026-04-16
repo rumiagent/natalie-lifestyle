@@ -33,7 +33,9 @@
 - [x] Implement 'Digital Candle' mindful focal point
 - [x] Implement 'Mindful Transition' entry sequence
 - [x] Implement 'Mindful Clock' with slow-fade transitions and organic pulsing
+- [x] Implement 'Digital Zen Garden' (Interactive canvas for mindful patterns)
 - [x] Implement 'Mindful Body Scan' somatic grounding guide
 - [x] Implement 'Mindful Listening' sensory awareness prompt
 - [x] Implement 'Mindful Observation' grounding exercise
 - [x] Implement 'Mindful Interaction' (Click-triggered gentle ripples)
+- [x] Implement 'Mindful Wind-Down' gentle evening transition sequence

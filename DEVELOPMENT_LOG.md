@@ -25,3 +25,22 @@ File unchanged since last read. The content from the earlier read_file result in
 - Implemented 'Mindful Interaction' feature: added a custom `RippleEffect` component that creates gentle, expanding ripples on user click, enhancing the tactile and organic feel of the app.
 - Fixed a critical issue where escaped quotes (\") were incorrectly present in multiple source files, causing build failures.
 - Restored `node_modules` after an accidental global replace.
+
+## [2026-04-16] Implement 'Mindful Wind-Down'
+- **Goal**: Create a gentle transition sequence to help users wind down and prepare for sleep.
+- **Changes**:
+    - Developed `MindfulWindDown.tsx` and `MindfulWindDown.css`.
+    - Implemented a sequenced series of peaceful prompts with slow fade-in/fade-out transitions.
+    - Added a background dimming effect that intensifies as the sequence progresses.
+    - Integrated a 'Begin Wind-Down' trigger button in the dashboard footer.
+- **Outcome**: Added a restful evening ritual that encourages the user to consciously let go of the day.
+
+## [2026-04-16] Implement 'Digital Zen Garden'
+- **Goal**: Provide a tactile, ephemeral drawing experience to encourage presence and the act of letting go.
+- **Changes**:
+    - Developed `ZenGarden.tsx` and `ZenGarden.css` using HTML5 Canvas.
+    - Implemented a "sand rake" effect with smooth, organic lines.
+    - Added an automatic fade-out loop that slowly erases lines over time, emphasizing ephemerality.
+    - Integrated a rake-width control for customizable sensory experience.
+    - Integrated the component into the main dashboard alongside Ephemeral Notes.
+- **Outcome**: Added a visual and interactive meditation tool that complements the app's focus on slow, intentional interaction.
