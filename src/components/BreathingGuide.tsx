@@ -1,46 +1,100 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import './BreathingGuide.css';
 
 type BreathingPhase = 'Inhale' | 'Hold' | 'Exhale' | 'Pause';
+
+interface PhaseConfig {
+  name: BreathingPhase;
+  duration: number;
+  targetScale: number;
+}
+
+interface BreathingPattern {
+  id: string;
+  name: string;
+  phases: PhaseConfig[];
+  description: string;
+}
+
+const PATTERNS: Record<string, BreathingPattern> = {
+  calm: {
+    id: 'calm',
+    name: 'Calm',
+    description: 'Balanced rhythm for general serenity',
+    phases: [
+      { name: 'Inhale', duration: 4000, targetScale: 1.5 },
+      { name: 'Hold', duration: 4000, targetScale: 1.5 },
+      { name: 'Exhale', duration: 4000, targetScale: 1 },
+      { name: 'Pause', duration: 4000, targetScale: 1 },
+    ],
+  },
+  energy: {
+    id: 'energy',
+    name: 'Energy',
+    description: 'Short, crisp breaths to awaken the mind',
+    phases: [
+      { name: 'Inhale', duration: 2000, targetScale: 1.4 },
+      { name: 'Hold', duration: 1000, targetScale: 1.4 },
+      { name: 'Exhale', duration: 2000, targetScale: 1 },
+      { name: 'Pause', duration: 1000, targetScale: 1 },
+    ],
+  },
+  sleep: {
+    id: 'sleep',
+    name: 'Sleep',
+    description: 'Deep, slow rhythms for deep relaxation',
+    phases: [
+      { name: 'Inhale', duration: 4000, targetScale: 1.6 },
+      { name: 'Hold', duration: 7000, targetScale: 1.6 },
+      { name: 'Exhale', duration: 8000, targetScale: 1 },
+      { name: 'Pause', duration: 2000, targetScale: 1 },
+    ],
+  },
+};
 
 interface BreathingGuideProps {
   onClose: () => void;
 }
 
 const BreathingGuide: React.FC<BreathingGuideProps> = ({ onClose }) => {
-  const [phase, setPhase] = useState<BreathingPhase>('Inhale');
+  const [patternId, setPatternId] = useState('calm');
+  const [phaseIdx, setPhaseIdx] = useState(0);
   const [scale, setScale] = useState(1);
+  const [phaseName, setPhaseName] = useState<BreathingPhase>('Inhale');
+  
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const currentPattern = PATTERNS[patternId];
 
   useEffect(() => {
-    const phases: { name: BreathingPhase; duration: number; targetScale: number }[] = [
-      { name: 'Inhale', duration: 4000, targetScale: 1.5 },
-      { name: 'Hold', duration: 4000, targetScale: 1.5 },
-      { name: 'Exhale', duration: 4000, targetScale: 1 },
-      { name: 'Pause', duration: 4000, targetScale: 1 },
-    ];
+    // Reset when pattern changes
+    setPhaseIdx(0);
+    
+    const runCycle = () => {
+      const phase = currentPattern.phases[phaseIdx];
+      setPhaseName(phase.name);
+      setScale(phase.targetScale);
 
-    let currentPhaseIdx = 0;
+      // Dynamic transition timing based on phase duration
+      const circleElement = document.querySelector('.breathing-circle') as HTMLElement;
+      if (circleElement) {
+        circleElement.style.transition = `transform ${phase.duration}ms ease-in-out`;
+      }
 
-    const transition = () => {
-      const currentPhase = phases[currentPhaseIdx];
-      setPhase(currentPhase.name);
-      setScale(currentPhase.targetScale);
-
-      setTimeout(() => {
-        currentPhaseIdx = (currentPhaseIdx + 1) % phases.length;
-        transition();
-      }, currentPhase.duration);
+      timerRef.current = setTimeout(() => {
+        setPhaseIdx((prev) => (prev + 1) % currentPattern.phases.length);
+      }, phase.duration);
     };
 
-    transition();
+    runCycle();
 
     return () => {
-      // Note: In a real app, we'd use a ref to clear the timeout
+      if (timerRef.current) clearTimeout(timerRef.current);
     };
-  }, []);
+  }, [patternId, phaseIdx]);
 
-  // To properly handle the timeout cleanup, I'll refactor slightly in the final version 
-  // but for now, let's keep it simple or use an interval.
-  // Actually, I should use a proper cleanup to avoid memory leaks.
+  const handlePatternChange = (id: string) => {
+    setPatternId(id);
+  };
 
   return (
     <div className="breathing-overlay">
@@ -52,12 +106,24 @@ const BreathingGuide: React.FC<BreathingGuideProps> = ({ onClose }) => {
             className="breathing-circle" 
             style={{ transform: `scale(${scale})` }}
           />
-          <p className="breathing-text">{phase === 'Pause' ? 'Pause' : phase}</p>
+          <p className="breathing-text">{phaseName}</p>
         </div>
         
         <p className="breathing-subtext">
-          Follow the circle. Let go of everything else.
+          {currentPattern.description}
         </p>
+
+        <div className="pattern-selector">
+          {Object.values(PATTERNS).map((p) => (
+            <button 
+              key={p.id}
+              className={`pattern-btn ${patternId === p.id ? 'active' : ''}`}
+              onClick={() => handlePatternChange(p.id)}
+            >
+              {p.name}
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );
