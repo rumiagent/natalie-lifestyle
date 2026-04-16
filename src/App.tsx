@@ -12,6 +12,7 @@ import GratitudeLog from './components/GratitudeLog'
 import AmbientSoundscapes from './components/AmbientSoundscapes'
 import EphemeralNotes from './components/EphemeralNotes'
 import DigitalCandle from './components/DigitalCandle'
+import MindfulClock from './components/MindfulClock'
 import { WeatherService, type WeatherData } from './services/weatherService'
 
 function App() {
@@ -94,13 +95,9 @@ function App() {
 
   const getGreeting = () => {
     const hour = time.getHours()
-    if (hour < 12) return \"Good morning\"
-    if (hour < 18) return \"Good afternoon\"
-    return \"Good evening\"
-  }
-
-  const formatTime = (date: Date) => {
-    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })
+    if (hour < 12) return "Good morning"
+    if (hour < 18) return "Good afternoon"
+    return "Good evening"
   }
 
   return (
@@ -121,9 +118,7 @@ function App() {
               {isDecluttered ? 'Return to Sanctuary' : 'Digital Declutter'}
             </button>
           </div>
-          <p style={{ fontSize: '1.2rem', opacity: 0.8, marginBottom: '0.5rem' }}>
-            {formatTime(time)}
-          </p>
+          <MindfulClock time={time} />
           <h1>{getGreeting()}, Natalie.</h1>
         </header>
 
@@ -173,6 +168,6 @@ function App() {
       </div>
     </>
   )
-
+}
 
 export default App

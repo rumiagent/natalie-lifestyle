@@ -1,0 +1,36 @@
+.mindful-clock-container {
+  display: inline-block;
+  position: relative;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+
+.mindful-clock-text {
+  font-size: 1.2rem;
+  opacity: 0.8;
+  margin-bottom: 0.5rem;
+  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+  animation: mindful-pulse 8s ease-in-out infinite;
+  display: inline-block;
+}
+
+.clock-fade-out {
+  opacity: 0 !important;
+  transform: translateY(-2px);
+}
+
+.clock-fade-in {
+  opacity: 0.8 !important;
+  transform: translateY(0);
+}
+
+@keyframes mindful-pulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.02);
+  }
+}

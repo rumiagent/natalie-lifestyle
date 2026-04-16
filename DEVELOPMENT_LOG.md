@@ -31,3 +31,17 @@
     - Implemented smooth CSS transitions (fade-in/fade-out) to seamlessly move from the entry screen to the main sanctuary.
     - Integrated entry state management in `App.tsx` and added `.hidden-entry` CSS to prevent content flashing.
 - **Outcome**: The app now begins with a mindful pause, reinforcing the 'digital sanctuary' vision and setting the correct emotional tone immediately upon launch.
+
+## 2026-04-15 - Mindful Clock Implementation
+- Implemented  component to replace the standard digital clock.
+- Removed seconds from the display to reduce anxiety and urgency.
+- Added a slow-fade transition (fade-out/fade-in) that triggers on minute changes.
+- Introduced a 'mindful-pulse' animation (8s cycle) to synchronize with slow breathing.
+- Integrated the component into the main dashboard header.
+
+## 2026-04-15 - Mindful Clock Implementation
+- Implemented `MindfulClock` component to replace the standard digital clock.
+- Removed seconds from the display to reduce anxiety and urgency.
+- Added a slow-fade transition (fade-out/fade-in) that triggers on minute changes.
+- Introduced a 'mindful-pulse' animation (8s cycle) to synchronize with slow breathing.
+- Integrated the component into the main dashboard header.
