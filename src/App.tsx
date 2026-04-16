@@ -31,6 +31,7 @@ import ReflectionOrb from './components/ReflectionOrb'
 import WaterReminder from './components/WaterReminder'
 import MindfulStillness from './components/MindfulStillness'
 import SanctuaryGarden from './components/SanctuaryGarden'
+import SensorHub from './components/SensorHub'
 import { WeatherService, type WeatherData } from './services/weatherService'
 
 function App() {
@@ -46,6 +47,12 @@ function App() {
   const [showReflection, setShowReflection] = useState(false)
   const [showGarden, setShowGarden] = useState(false)
   const [zenMessage, setZenMessage] = useState(ZEN_MESSAGES[0])
+  const [sensors, setSensors] = useState({
+    light: 50,
+    temperature: 20,
+    noise: 20,
+    energy: 50
+  })
   const [zenTransitioning, setZenTransitioning] = useState(false)
   const [weather, setWeather] = useState<WeatherData | null>(null)
 
@@ -105,8 +112,12 @@ function App() {
     else if (month >= 8 && month <= 10) season = 'season-autumn';
     else season = 'season-winter';
     
-    document.body.className = `${theme} ${season}`
-  }, [time, weather])
+    let tempClass = '';
+    if (sensors.temperature < 10) tempClass = 'temp-cold';
+    else if (sensors.temperature > 28) tempClass = 'temp-warm';
+
+    document.body.className = `${theme} ${season} ${tempClass}`
+  }, [time, weather, sensors])
 
   const refreshMoment = () => {
     setIsTransitioning(true)
@@ -147,25 +158,27 @@ function App() {
         isOpen={showReflection} 
         onClose={() => setShowReflection(false)} 
       />
-      {showGarden && <SanctuaryGarden onClose={() => setShowGarden(false)} />}
-      {showSomatic && <SomaticRelease onClose={() => setShowSomatic(false)} />}
-      <div className={`fade-in ${hasEntered ? '' : 'hidden-entry'}`}>
-        <div className=\"presence-ripple\"></div>
-        <div className=\"presence-ripple-secondary\"></div>
+      {showGarden && <SanctuaryGarden onClose={() => setShowGarden(false)} />}\n      <SensorHub sensors={sensors} setSensors={setSensors} />
+      {showSomatic && <SomaticRelease onClose={() => setShowSomatic(false)} />}\n      <div className={`fade-in ${hasEntered ? '' : 'hidden-entry'}`}>\n        <div className={`presence-ripple ${sensors.energy < 30 ? 'slow-ripple' : sensors.energy > 70 ? 'fast-ripple' : ''}`}></div>\n        <div className={`presence-ripple-secondary ${sensors.energy < 30 ? 'slow-ripple' : sensors.energy > 70 ? 'fast-ripple' : ''}`}></div>
         {showBreathing && <BreathingGuide onClose={() => setShowBreathing(false)} />}
         
-        <header style={{ marginBottom: '4rem', position: 'relative' }}>
-          <div style={{ position: 'absolute', right: 0, top: 0 }}>
-            <button 
-              className=\"moment-btn declutter-btn\" 
-              onClick={() => setIsDecluttered(!isDecluttered)}
-              style={{ fontSize: '0.7rem', opacity: 0.5 }}
-            >
-              {isDecluttered ? 'Return to Sanctuary' : 'Digital Declutter'}
-            </button>
-          </div>
-          <MindfulClock time={time} />
-          <h1>{getGreeting()}, Natalie.</h1>
+          <header style={{ marginBottom: '4rem', position: 'relative' }}>
+            <div style={{ position: 'absolute', right: 0, top: 0 }}>
+              <button 
+                className=\"moment-btn declutter-btn\" 
+                onClick={() => setIsDecluttered(!isDecluttered)}
+                style={{ fontSize: '0.7rem', opacity: 0.5 }}
+              >
+                {isDecluttered ? 'Return to Sanctuary' : 'Digital Declutter'}
+              </button>
+            </div>
+            {sensors.noise > 70 && (
+              <p className=\"noise-warning-prompt\">
+                The world is a bit loud right now. Perhaps a moment of digital declutter?
+              </p>
+            )}
+            <MindfulClock time={time} />
+            <h1>{getGreeting()}, Natalie.</h1>
           <p className=\"weather-poetic-desc\">
             {weather ? WeatherService.getPoeticDescription(weather.condition) : ''}
           </p>

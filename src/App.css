@@ -702,3 +702,38 @@ main > div,
   opacity: 0.8;
   border-color: var(--accent);
 }
+
+/* Environmental Sensor Styles */
+.temp-cold {
+  --accent: #a2c2cf;
+  --accent-bg: #f0f7fa;
+  --accent-border: #d0e4ef;
+  --bg: #f8fbfe;
+}
+
+.temp-warm {
+  --accent: #d4a373;
+  --accent-bg: #fefae0;
+  --accent-border: #faedcd;
+  --bg: #fffdf5;
+}
+
+.slow-ripple {
+  animation-duration: 40s !important;
+  opacity: 0.05 !important;
+}
+
+.fast-ripple {
+  animation-duration: 15s !important;
+  opacity: 0.2 !important;
+}
+
+.noise-warning-prompt {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--text);
+  opacity: 0.6;
+  margin-bottom: 1.5rem;
+  animation: soft-pulse 6s ease-in-out infinite;
+  text-align: center;
+}

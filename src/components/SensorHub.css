@@ -1,0 +1,99 @@
+.sensor-hub-container {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000;
+  font-family: inherit;
+}
+
+.sensor-hub-trigger {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  font-size: 0.7rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  color: inherit;
+  opacity: 0.6;
+}
+
+.sensor-hub-trigger:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.sensor-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ccc;
+  transition: all 0.5s ease;
+}
+
+.sensor-dot.calm {
+  background: #a8b5a2;
+  box-shadow: 0 0 5px #a8b5a2;
+}
+
+.sensor-dot.vibrant {
+  background: #e2c6a3;
+  box-shadow: 0 0 8px #e2c6a3;
+}
+
+.sensor-hub-panel {
+  position: absolute;
+  bottom: 3rem;
+  right: 0;
+  width: 240px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  border: 1px solid rgba(255,255,255,0.5);
+  animation: slideUp 0.4s ease-out;
+  color: #555;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.sensor-hub-panel h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.9rem;
+  font-weight: 400;
+  text-align: center;
+}
+
+.sensor-hint {
+  font-size: 0.65rem;
+  opacity: 0.7;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+.sensor-group {
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sensor-group label {
+  font-size: 0.7rem;
+  opacity: 0.8;
+}
+
+.sensor-group input {
+  width: 100%;
+  cursor: pointer;
+  accent-color: #a8b5a2;
+}
