@@ -41,5 +41,7 @@
 - [x] Implement 'Mindful Wind-Down' gentle evening transition sequence
 - [x] Implement 'Serenity Timer' for intentional focus
 - [x] Implement 'Digital Tea Ceremony' interactive ritual
+- [x] Implement 'Digital Kintsugi' (Mending the broken vessel)
 - [x] Implement 'Mindful Hydration Reminder' (Gentle water nudge)
 - [x] Implement 'Observational Pause' (Window to the World)
+- [x] Implement 'Somatic Release' somatic grounding guide

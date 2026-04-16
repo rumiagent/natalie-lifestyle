@@ -1,0 +1,82 @@
+.somatic-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(245, 245, 240, 0.9); /* Soft neutral overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+  transition: all 1s ease;
+}
+
+.somatic-card {
+  text-align: center;
+  max-width: 600px;
+  padding: 3rem;
+  position: relative;
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.somatic-card.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.somatic-card:not(.fade-in) {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.somatic-text {
+  font-size: 1.5rem;
+  color: #5a5a5a;
+  line-height: 1.6;
+  font-weight: 300;
+  margin-bottom: 3rem;
+  animation: somaticFade 6s infinite;
+}
+
+@keyframes somaticFade {
+  0%, 10% { opacity: 0; transform: translateY(5px); }
+  20%, 80% { opacity: 1; transform: translateY(0); }
+  90%, 100% { opacity: 0; transform: translateY(-5px); }
+}
+
+.somatic-pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(167, 183, 165, 0.2) 0%, rgba(245, 245, 240, 0) 70%);
+  border-radius: 50%;
+  z-index: -1;
+  animation: pulse 8s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+  50% { transform: translate(-50%, -50%) scale(1.3); opacity: 0.8; }
+}
+
+.somatic-close-btn {
+  background: none;
+  border: 1px solid rgba(0,0,0,0.1);
+  color: #888;
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+  opacity: 0.6;
+}
+
+.somatic-close-btn:hover {
+  opacity: 1;
+  background: rgba(0,0,0,0.03);
+}

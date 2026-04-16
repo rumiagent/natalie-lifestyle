@@ -78,3 +78,18 @@ File unchanged since last read. The content from the earlier read_file result in
     - Added a gentle 30-second timer with a soft-pulsing visual to guide the duration of the pause.
     - Integrated a "Look Outside" trigger in the dashboard footer.
 - **Outcome**: Added a feature that actively encourages the user to leave the screen and reconnect with the physical world, enhancing the app's philosophy of mindful presence.
+
+## [2026-04-16] Implement 'Digital Kintsugi'
+- **Goal**: Provide a visual metaphor for resilience and beauty in imperfection.
+- **Changes**:
+    - Developed `Kintsugi.tsx` and `Kintsugi.css`.
+    - Implemented an interactive SVG-based ritual where users trace cracks in a ceramic vessel to mend them with gold.
+    - Added a transition to a completed state with a mindful message about resilience.
+    - Integrated the component into the main dashboard ritual toolset.
+- **Outcome**: Added a meaningful, tactile experience that encourages the user to embrace their imperfections, further deepening the app's emotional value.
+
+## Somatic Release Integration
+- Created `SomaticRelease.tsx` and `SomaticRelease.css`.
+- Implemented a guided sequence of somatic release prompts (jaw, shoulders, eyes, etc.) with fluid animations.
+- Integrated the feature into `App.tsx` with a dedicated trigger in the sanctuary footer.
+- Verified the calming visual pulse and transition timing (6s per prompt).

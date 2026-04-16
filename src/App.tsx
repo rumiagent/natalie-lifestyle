@@ -13,10 +13,12 @@ import AmbientSoundscapes from './components/AmbientSoundscapes'
 import EphemeralNotes from './components/EphemeralNotes'
 import DigitalCandle from './components/DigitalCandle'
 import ZenGarden from './components/ZenGarden'
+import SomaticRelease from './components/SomaticRelease'
 import MindfulBodyScan from './components/MindfulBodyScan'
 import MindfulListening from './components/MindfulListening'
 import MindfulObservation from './components/MindfulObservation'
 import TeaCeremony from './components/TeaCeremony'
+import Kintsugi from './components/Kintsugi'
 import SerenityTimer from './components/SerenityTimer'
 import MindfulClock from './components/MindfulClock'
 import MindfulWindDown from './components/MindfulWindDown'
@@ -34,6 +36,7 @@ function App() {
   const [showBreathing, setShowBreathing] = useState(false)
   const [isWindDownActive, setIsWindDownActive] = useState(false)
   const [showWindow, setShowWindow] = useState(false)
+  const [showSomatic, setShowSomatic] = useState(false)
   const [zenMessage, setZenMessage] = useState(ZEN_MESSAGES[0])
   const [zenTransitioning, setZenTransitioning] = useState(false)
   const [weather, setWeather] = useState<WeatherData | null>(null)
@@ -124,7 +127,9 @@ function App() {
         isOpen={showWindow} 
         onClose={() => setShowWindow(false)} 
       />
-      <div className={`fade-in ${hasEntered ? '' : 'hidden-entry'}`}>\n        <div className="presence-ripple"></div>
+      {showSomatic && <SomaticRelease onClose={() => setShowSomatic(false)} />}
+      <div className={`fade-in ${hasEntered ? '' : 'hidden-entry'}`}>
+        <div className="presence-ripple"></div>
         <div className="presence-ripple-secondary"></div>
         {showBreathing && <BreathingGuide onClose={() => setShowBreathing(false)} />}
         
@@ -170,6 +175,7 @@ function App() {
             <MindfulListening />
             <MindfulObservation />
             <TeaCeremony />
+            <Kintsugi />
             <SerenityTimer />
             <DigitalCandle />
             <AmbientSoundscapes />
@@ -202,6 +208,13 @@ function App() {
                 style={{ opacity: 0.7 }}
               >
                 Look Outside
+              </button>
+              <button 
+                className="moment-btn" 
+                onClick={() => setShowSomatic(true)}
+                style={{ opacity: 0.7 }}
+              >
+                Somatic Release
               </button>
             </div>
           </footer>
