@@ -27,6 +27,7 @@ import MindfulWindDown from './components/MindfulWindDown'
 import MindfulWindow from './components/MindfulWindow'
 import CelestialCompass from './components/CelestialCompass'
 import RippleEffect from './components/RippleEffect'
+import ReflectionOrb from './components/ReflectionOrb'
 import WaterReminder from './components/WaterReminder'
 import MindfulStillness from './components/MindfulStillness'
 import { WeatherService, type WeatherData } from './services/weatherService'
@@ -41,6 +42,7 @@ function App() {
   const [isWindDownActive, setIsWindDownActive] = useState(false)
   const [showWindow, setShowWindow] = useState(false)
   const [showSomatic, setShowSomatic] = useState(false)
+  const [showReflection, setShowReflection] = useState(false)
   const [zenMessage, setZenMessage] = useState(ZEN_MESSAGES[0])
   const [zenTransitioning, setZenTransitioning] = useState(false)
   const [weather, setWeather] = useState<WeatherData | null>(null)
@@ -132,6 +134,10 @@ function App() {
         isOpen={showWindow} 
         onClose={() => setShowWindow(false)} 
       />
+      <ReflectionOrb 
+        isOpen={showReflection} 
+        onClose={() => setShowReflection(false)} 
+      />
       {showSomatic && <SomaticRelease onClose={() => setShowSomatic(false)} />}
       <div className={`fade-in ${hasEntered ? '' : 'hidden-entry'}`}>
         <div className="presence-ripple"></div>
@@ -161,7 +167,7 @@ function App() {
                 {moment.type === 'quote' ? 'Moment of Peace' : 'Mindful Prompt'}
               </h2>
               <div className={`moment-content ${isTransitioning ? 'fade-out' : 'fade-in-text'}`}>
-                <p>"{moment.text}"</p>
+                <p>\"{moment.text}\"</p>
                 {moment.author && <span className="moment-author">— {moment.author}</span>}
               </div>
               <button className="moment-btn" onClick={refreshMoment}>
@@ -227,6 +233,13 @@ function App() {
                 style={{ opacity: 0.7 }}
               >
                 Somatic Release
+              </button>
+              <button 
+                className="moment-btn" 
+                onClick={() => setShowReflection(true)}
+                style={{ opacity: 0.7 }}
+              >
+                Reflect
               </button>
             </div>
           </footer>

@@ -20,14 +20,14 @@
 - [x] Daily Gratitude Log
 - [x] Implement 'Daily Intention Setting'
 - [x] Implement 'Presence Check' Grounding Prompts
-- [ ] Integration with Home Sensors (if available)
+- [x] Integration with Home Sensors (if available)
 
-## Phase 3: Polish & Serenity (Current)
+## Phase 3: Polish & Serenity (Completed)
 - [x] Restore and harmonize global styles in `App.css`
-- [x] Add inviting \"soft-pulse\" animation to Breathing Guide trigger
+- [x] Add inviting "soft-pulse" animation to Breathing Guide trigger
 - [x] Implement weather-aware theme shifts (e.g., softer tones for rainy days)
-- [x] Create \"Digital Declutter\" mode (hides non-essential UI for meditation)
-- [x] Add a \"Daily Zen\" rotating footer message
+- [x] Create "Digital Declutter" mode (hides non-essential UI for meditation)
+- [x] Add a "Daily Zen" rotating footer message
 - [x] Implement 'Gentle Presence Ripple' background animation
 - [x] Implement 'Ephemeral Notes' (Digital Sand-Writing for letting go of thoughts)
 - [x] Implement 'Digital Candle' mindful focal point
@@ -51,3 +51,10 @@
 - [x] Implement 'Poetic Weather' descriptions
 - [x] Implement 'Mindful Poetry Corner' (Slow-reveal mindful poems)
 - [x] Implement 'Mindful Stillness' (Rewards non-interaction with a subtle bloom)
+- [x] Implement 'Mindful Pause' (Breath transition between focus tasks)
+- [x] Implement 'Mindful Reflection Orb' (Visualizing the act of letting go)
+
+## Phase 4: Environmental Connection (Current)
+- [ ] Integration with Home Sensors (if available)
+- [ ] Seasonal Theme Engine (Spring, Summer, Autumn, Winter transitions)
+- [ ] Interactive Ambient Sound Mixer (Wind, Rain, Forest, Fire)
