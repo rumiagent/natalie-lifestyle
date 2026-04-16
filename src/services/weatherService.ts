@@ -60,5 +60,16 @@ export const WeatherService = {
       clear: null, // Clear just uses the time-based theme
     };
     return mapping[condition];
+  },
+
+  getPoeticDescription(condition: WeatherCondition): string {
+    const poeticMap: Record<WeatherCondition, string> = {
+      sunny: 'Warmth and light embrace the day.',
+      cloudy: 'A quiet, muted stillness settles in.',
+      rainy: 'Gentle rain, a soft rhythm for reflection.',
+      snowy: 'A silent, white peace descends.',
+      clear: 'Open skies, an invitation to breathe.',
+    };
+    return poeticMap[condition];
   }
 };

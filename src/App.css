@@ -88,7 +88,6 @@
     opacity: 0;
   }
 }
-
 @keyframes interaction-ripple {
   0% {
     transform: translate(-50%, -50%) scale(0);
@@ -111,31 +110,50 @@
   animation: interaction-ripple 1s ease-out forwards;
 }
 
+@keyframes serenity-drift {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.1;
+  }
+  33% {
+    transform: translate(-45%, -55%) scale(1.1);
+    opacity: 0.2;
+  }
+  66% {
+    transform: translate(-55%, -45%) scale(0.9);
+    opacity: 0.15;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.1;
+  }
+}
+
 .presence-ripple {
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 100vw;
-  height: 100vw;
+  width: 120vw;
+  height: 120vw;
   background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
   z-index: -1;
-  animation: presence-ripple 12s ease-in-out infinite;
+  animation: serenity-drift 25s ease-in-out infinite;
 }
 
 .presence-ripple-secondary {
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 100vw;
-  height: 100vw;
+  width: 110vw;
+  height: 110vw;
   background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
   z-index: -1;
-  animation: presence-ripple 18s ease-in-out infinite;
-  animation-delay: 6s;
+  animation: serenity-drift 35s ease-in-out infinite reverse;
+  animation-delay: -10s;
 }
 
 .breathing-btn-pulse {
@@ -546,3 +564,12 @@ main > div,
 }
 
 .hidden-entry { display: none; }
+
+.weather-poetic-desc {
+  font-size: 1rem;
+  opacity: 0.5;
+  font-family: var(--sans);
+  margin-top: 0.5rem;
+  font-style: italic;
+  transition: all 0.8s ease;
+}

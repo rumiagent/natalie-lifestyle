@@ -147,6 +147,9 @@ function App() {
           </div>
           <MindfulClock time={time} />
           <h1>{getGreeting()}, Natalie.</h1>
+          <p className="weather-poetic-desc">
+            {weather ? WeatherService.getPoeticDescription(weather.condition) : ''}
+          </p>
         </header>
         <main style={{ maxWidth: '500px', textAlign: 'center' }} className={isDecluttered ? 'decluttered-main' : ''}>
           {moment && (

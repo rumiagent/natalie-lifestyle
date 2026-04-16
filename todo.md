@@ -45,4 +45,4 @@
 - [x] Implement 'Mindful Hydration Reminder' (Gentle water nudge)
 - [x] Implement 'Observational Pause' (Window to the World)
 - [x] Implement 'Somatic Release' somatic grounding guide
-- [x] Implement 'Daily Affirmation Bloom' (Hold-to-bloom tactile ritual)\n- [x] Implement 'Celestial Compass' (Moon phase & cosmic mindful anchors)\n
+- [x] Implement 'Drifting Serenity Glow' (Dynamic, organic background movement)\n- [x] Implement 'Daily Affirmation Bloom' (Hold-to-bloom tactile ritual)\n- [x] Implement 'Celestial Compass' (Moon phase & cosmic mindful anchors)\n
