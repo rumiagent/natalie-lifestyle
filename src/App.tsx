@@ -21,6 +21,7 @@ import SerenityTimer from './components/SerenityTimer'
 import MindfulClock from './components/MindfulClock'
 import MindfulWindDown from './components/MindfulWindDown'
 import RippleEffect from './components/RippleEffect'
+import WaterReminder from './components/WaterReminder'
 import { WeatherService, type WeatherData } from './services/weatherService'
 
 function App() {
@@ -112,6 +113,7 @@ function App() {
     <>
       {!hasEntered && <MindfulEntry onComplete={() => setHasEntered(true)} />}
       <RippleEffect />
+      <WaterReminder />
       <MindfulWindDown 
         isActive={isWindDownActive} 
         onClose={() => setIsWindDownActive(false)} 

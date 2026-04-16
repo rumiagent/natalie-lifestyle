@@ -60,3 +60,12 @@ File unchanged since last read. The content from the earlier read_file result in
 - Integrated the component into the main sanctuary dashboard.
 - Updated todo list and project state.
 
+
+## [2026-04-16] Implement 'Mindful Hydration Reminder'
+- **Goal**: Provide a gentle, non-intrusive nudge for the user to hydrate, integrating utility with mindfulness.
+- **Changes**:
+    - Developed `WaterReminder.tsx` and `WaterReminder.css`.
+    - Implemented a pulsing, organic blue "water drop" trigger that appears periodically.
+    - Added a mindful hydration message that fades in upon interaction: "A sip of water for your body, a moment of peace for your mind."
+    - Integrated the component as a floating, unobtrusive element in the main App layout.
+- **Outcome**: Enhanced the 'Home Companion' aspect of the app by providing a wellness utility that adheres to the core aesthetic of serenity and slow interaction.
