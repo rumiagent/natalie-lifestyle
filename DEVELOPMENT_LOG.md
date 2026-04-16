@@ -14,3 +14,12 @@
     - Added soft, ethereal styling in `App.css` with fade-in animations.
     - Integrated the component into the main dashboard, providing a reflective closing activity.
 - **Outcome**: Added a unique, mindful interaction that encourages emotional release and complements the 'digital sanctuary' vision.
+
+## [2026-04-15] Implement 'Digital Candle'
+- **Goal**: Provide a visual focal point for mindfulness and focus, enhancing the sanctuary feeling.
+- **Changes**:
+    - Developed `DigitalCandle.tsx` component with a toggleable flame state.
+    - Implemented detailed CSS animations for the flame, including a flicker and a gentle sway to mimic real candle behavior.
+    - Added a soft radial glow and elegant labels (\"Light the candle\" / \"The light is present\").
+    - Integrated the component into the main dashboard as a mindful tool.
+- **Outcome**: Introduced a simple yet powerful tool for centering attention, perfectly aligned with the app's slow-UX philosophy.
