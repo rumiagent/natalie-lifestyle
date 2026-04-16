@@ -1,10 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './SanctuaryGarden.css';
+import StillnessBloom from './StillnessBloom';
 import { getGardenState, updateGardenMetric, updateRitualStreak } from '../services/gardenService';
 
 const SanctuaryGarden: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [state, setState] = useState(getGardenState());
+  const [isTending, setIsTending] = useState(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -66,18 +68,46 @@ const SanctuaryGarden: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   }, [state]);
 
   const tendGarden = () => {
+    setIsTending(true);
+  };
+
+  const handleBloomComplete = () => {
     updateRitualStreak();
-    const newState = updateGardenMetric('stillnessMoss', 10);
+    const newState = updateGardenMetric('stillnessMoss', 50);
     setState({ ...newState });
+    setIsTending(false);
+  };
+
+  const handleBloomCancel = () => {
+    setIsTending(false);
   };
 
   return (
-    <div className=\"sanctuary-garden-container\">
-      <div className=\"garden-header\">\n        <button className=\"garden-close-btn\" onClick={onClose}>×</button>\n        <h2>The Sanctuary Garden</h2>\n        <p>A living reflection of your presence.</p>\n      </div>
+    <div className="sanctuary-garden-container">
+      {isTending && (
+        <StillnessBloom 
+          onComplete={handleBloomComplete} 
+          onCancel={handleBloomCancel} 
+        />
+      )}
+      <div className="garden-header">
+        <button className="garden-close-btn" onClick={onClose}>×</button>
+        <h2>The Sanctuary Garden</h2>
+        <p>A living reflection of your presence.</p>
+      </div>
       
-      <div className=\"garden-canvas-wrapper\">\n        <canvas ref={canvasRef} className=\"garden-canvas\" />\n      </div>
-
-      <div className=\"garden-controls\">\n        <button className=\"garden-button\" onClick={tendGarden}>\n          Water the Moss\n        </button>\n        <div className=\"garden-stats\">\n          <span>Stillness Moss: {state.stillnessMoss} units</span>\n        </div>\n      </div>
+      <div className="garden-canvas-wrapper">
+        <canvas ref={canvasRef} className="garden-canvas" />
+      </div>
+      
+      <div className="garden-controls">
+        <button className="garden-button" onClick={tendGarden}>
+          Tend the Garden
+        </button>
+        <div className="garden-stats">
+          <span>Stillness Moss: {state.stillnessMoss} units</span>
+        </div>
+      </div>
     </div>
   );
 };
