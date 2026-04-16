@@ -75,6 +75,27 @@
   color-scheme: dark;
 }
 
+/* Seasonal Theme Overrides */
+.season-spring .theme-dawn { --accent: #FADADD; --accent-bg: rgba(250, 218, 221, 0.1); --accent-border: rgba(250, 218, 221, 0.5); }
+.season-spring .theme-noon { --accent: #B8D8BA; --accent-bg: rgba(184, 216, 186, 0.1); --accent-border: rgba(184, 216, 186, 0.5); }
+.season-spring .theme-dusk { --accent: #C1E1C1; --accent-bg: rgba(193, 225, 193, 0.1); --accent-border: rgba(193, 225, 193, 0.5); }
+.season-spring .theme-midnight { --accent: #A3C1AD; --accent-bg: rgba(163, 193, 173, 0.15); --accent-border: rgba(163, 193, 173, 0.5); }
+
+.season-summer .theme-dawn { --accent: #FFE4B5; --accent-bg: rgba(255, 228, 181, 0.1); --accent-border: rgba(255, 228, 181, 0.5); }
+.season-summer .theme-noon { --accent: #F0E68C; --accent-bg: rgba(240, 230, 140, 0.1); --accent-border: rgba(240, 230, 140, 0.5); }
+.season-summer .theme-dusk { --accent: #E9967A; --accent-bg: rgba(233, 150, 122, 0.1); --accent-border: rgba(233, 150, 122, 0.5); }
+.season-summer .theme-midnight { --accent: #87CEEB; --accent-bg: rgba(135, 206, 235, 0.15); --accent-border: rgba(135, 206, 235, 0.5); }
+
+.season-autumn .theme-dawn { --accent: #DEB887; --accent-bg: rgba(222, 184, 135, 0.1); --accent-border: rgba(222, 184, 135, 0.5); }
+.season-autumn .theme-noon { --accent: #CD853F; --accent-bg: rgba(205, 133, 63, 0.1); --accent-border: rgba(205, 133, 63, 0.5); }
+.season-autumn .theme-dusk { --accent: #A0522D; --accent-bg: rgba(160, 82, 45, 0.1); --accent-border: rgba(160, 82, 45, 0.5); }
+.season-autumn .theme-midnight { --accent: #D2B48C; --accent-bg: rgba(210, 180, 140, 0.15); --accent-border: rgba(210, 180, 140, 0.5); }
+
+.season-winter .theme-dawn { --accent: #F0F8FF; --accent-bg: rgba(240, 248, 255, 0.1); --accent-border: rgba(240, 248, 255, 0.5); }
+.season-winter .theme-noon { --accent: #B0C4DE; --accent-bg: rgba(176, 196, 222, 0.1); --accent-border: rgba(176, 196, 222, 0.5); }
+.season-winter .theme-dusk { --accent: #708090; --accent-bg: rgba(112, 128, 144, 0.1); --accent-border: rgba(112, 128, 144, 0.5); }
+.season-winter .theme-midnight { --accent: #B0C4DE; --accent-bg: rgba(176, 196, 222, 0.15); --accent-border: rgba(176, 196, 222, 0.5); }
+
 /* Weather-Aware Themes */
 .theme-rainy {
   --bg: #E2E8F0;

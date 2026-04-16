@@ -95,8 +95,15 @@ function App() {
         theme = weatherTheme;
       }
     }
+
+    const month = new Date().getMonth();
+    let season = 'season-spring';
+    if (month >= 2 && month <= 4) season = 'season-spring';
+    else if (month >= 5 && month <= 7) season = 'season-summer';
+    else if (month >= 8 && month <= 10) season = 'season-autumn';
+    else season = 'season-winter';
     
-    document.body.className = theme
+    document.body.className = `${theme} ${season}`
   }, [time, weather])
 
   const refreshMoment = () => {
