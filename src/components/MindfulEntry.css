@@ -1,0 +1,57 @@
+.mindful-entry-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg-color, #fdfcf8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 1s ease-in-out;
+  color: #6b6b6b;
+  font-family: 'Georgia', serif;
+}
+
+.mindful-entry-overlay.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.mindful-entry-content {
+  text-align: center;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+}
+
+.mindful-entry-content.fade-in {
+  opacity: 1;
+}
+
+.mindful-entry-content p {
+  font-size: 1.5rem;
+  font-style: italic;
+  letter-spacing: 0.05rem;
+  margin-bottom: 2rem;
+}
+
+.entry-breath-indicator {
+  width: 20px;
+  height: 20px;
+  background-color: #d1d1d1;
+  border-radius: 50%;
+  margin: 0 auto;
+  animation: soft-pulse 4s infinite ease-in-out;
+}
+
+@keyframes soft-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.8;
+  }
+}

@@ -23,3 +23,11 @@
     - Added a soft radial glow and elegant labels (\"Light the candle\" / \"The light is present\").
     - Integrated the component into the main dashboard as a mindful tool.
 - **Outcome**: Introduced a simple yet powerful tool for centering attention, perfectly aligned with the app's slow-UX philosophy.
+
+## [2026-04-15] Implement 'Mindful Transition' Entry Sequence
+- **Goal**: Create an intentional entry point to the app that encourages the user to slow down and arrive in the moment.
+- **Changes**:
+    - Developed `MindfulEntry.tsx` component that displays a gentle "Take a moment to arrive..." prompt with a soft-pulsing breath indicator.
+    - Implemented smooth CSS transitions (fade-in/fade-out) to seamlessly move from the entry screen to the main sanctuary.
+    - Integrated entry state management in `App.tsx` and added `.hidden-entry` CSS to prevent content flashing.
+- **Outcome**: The app now begins with a mindful pause, reinforcing the 'digital sanctuary' vision and setting the correct emotional tone immediately upon launch.
