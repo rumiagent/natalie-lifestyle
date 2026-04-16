@@ -75,6 +75,48 @@
   color-scheme: dark;
 }
 
+/* Weather-Aware Themes */
+.theme-rainy {
+  --bg: #E2E8F0;
+  --text: #475569;
+  --text-h: #334155;
+  --accent: #94A3B8;
+  --accent-bg: rgba(148, 163, 184, 0.1);
+  --accent-border: rgba(148, 163, 184, 0.5);
+  --border: #CBD5E1;
+}
+
+.theme-cloudy {
+  --bg: #F1F5F9;
+  --text: #64748B;
+  --text-h: #475569;
+  --accent: #94A3B8;
+  --accent-bg: rgba(148, 163, 184, 0.1);
+  --accent-border: rgba(148, 163, 184, 0.5);
+  --border: #E2E8F0;
+}
+
+.theme-sunny {
+  --bg: #FFFBEB;
+  --text: #78350F;
+  --text-h: #451A03;
+  --accent: #FBBF24;
+  --accent-bg: rgba(251, 191, 36, 0.1);
+  --accent-border: rgba(251, 191, 36, 0.5);
+  --border: #FEF3C7;
+}
+
+.theme-snowy {
+  --bg: #F8FAFC;
+  --text: #64748B;
+  --text-h: #334155;
+  --accent: #BFDBFE;
+  --accent-bg: rgba(191, 219, 254, 0.1);
+  --accent-border: rgba(191, 219, 254, 0.5);
+  --border: #E2E8F0;
+}
+
+
 @media (prefers-color-scheme: dark) {
   :root {
     /* Keep system dark mode as a fallback or base if no time-theme is active */

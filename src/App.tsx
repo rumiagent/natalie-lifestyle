@@ -9,6 +9,7 @@ import MindfulRituals from './components/MindfulRituals'
 import MindfulRecipes from './components/MindfulRecipes'
 import GratitudeLog from './components/GratitudeLog'
 import AmbientSoundscapes from './components/AmbientSoundscapes'
+import { WeatherService, type WeatherData } from './services/weatherService'
 
 function App() {
   const [time, setTime] = useState(new Date())
@@ -18,6 +19,7 @@ function App() {
   const [showBreathing, setShowBreathing] = useState(false)
   const [zenMessage, setZenMessage] = useState(ZEN_MESSAGES[0])
   const [zenTransitioning, setZenTransitioning] = useState(false)
+  const [weather, setWeather] = useState<WeatherData | null>(null)
 
   useEffect(() => {
     const timer = setInterval(() => setTime(new Date()), 1000)
@@ -26,6 +28,14 @@ function App() {
     setMoment(MINDFULNESS_MOMENTS[dayOfYear % MINDFULNESS_MOMENTS.length])
     
     return () => clearInterval(timer)
+  }, [])
+
+  useEffect(() => {
+    const fetchWeather = async () => {
+      const data = await WeatherService.getCurrentWeather();
+      setWeather(data);
+    };
+    fetchWeather();
   }, [])
 
   useEffect(() => {
@@ -52,9 +62,17 @@ function App() {
     } else {
       theme = 'theme-midnight'
     }
+
+    // Override with weather theme if available and applicable
+    if (weather) {
+      const weatherTheme = WeatherService.getThemeClass(weather.condition);
+      if (weatherTheme) {
+        theme = weatherTheme;
+      }
+    }
     
     document.body.className = theme
-  }, [time])
+  }, [time, weather])
 
   const refreshMoment = () => {
     setIsTransitioning(true)
@@ -72,9 +90,9 @@ function App() {
 
   const getGreeting = () => {
     const hour = time.getHours()
-    if (hour < 12) return "Good morning"
-    if (hour < 18) return "Good afternoon"
-    return "Good evening"
+    if (hour < 12) return \"Good morning\"
+    if (hour < 18) return \"Good afternoon\"
+    return \"Good evening\"
   }
 
   const formatTime = (date: Date) => {
@@ -82,13 +100,13 @@ function App() {
   }
 
   return (
-    <div className="fade-in">
+    <div className=\"fade-in\">
       {showBreathing && <BreathingGuide onClose={() => setShowBreathing(false)} />}
       
       <header style={{ marginBottom: '4rem', position: 'relative' }}>
         <div style={{ position: 'absolute', right: 0, top: 0 }}>
           <button 
-            className="moment-btn declutter-btn" 
+            className=\"moment-btn declutter-btn\" 
             onClick={() => setIsDecluttered(!isDecluttered)}
             style={{ fontSize: '0.7rem', opacity: 0.5 }}
           >
@@ -103,21 +121,21 @@ function App() {
 
       <main style={{ maxWidth: '500px', textAlign: 'center' }} className={isDecluttered ? 'decluttered-main' : ''}>
         {moment && (
-          <section className="moment-of-peace">
-            <h2 className="moment-title">
+          <section className=\"moment-of-peace\">
+            <h2 className=\"moment-title\">
               {moment.type === 'quote' ? 'Moment of Peace' : 'Mindful Prompt'}
             </h2>
             <div className={`moment-content ${isTransitioning ? 'fade-out' : 'fade-in-text'}`}>
-              <p>"{moment.text}"</p>
-              {moment.author && <span className="moment-author">— {moment.author}</span>}
+              <p>\"{moment.text}\"</p>
+              {moment.author && <span className=\"moment-author\">— {moment.author}</span>}
             </div>
-            <button className="moment-btn" onClick={refreshMoment}>
+            <button className=\"moment-btn\" onClick={refreshMoment}>
               {isTransitioning ? '...' : 'Seek another moment'}
             </button>
           </section>
         )}
 
-        <div className="declutter-target">
+        <div className=\"declutter-target\">
           <DailyIntention />
           <PresencePrompt />
           <TodayFocus />
@@ -128,13 +146,13 @@ function App() {
         </div>
 
         <footer style={{ opacity: 0.6, fontSize: '0.9rem', marginTop: '2rem' }}>
-          <div className="declutter-target">
+          <div className=\"declutter-target\">
             <p className={`zen-message ${zenTransitioning ? 'fade-out' : 'fade-in-text'}`} style={{ marginBottom: '1rem' }}>
               {zenMessage}
             </p>
           </div>
           <button 
-            className="moment-btn breathing-btn-pulse" 
+            className=\"moment-btn breathing-btn-pulse\" 
             onClick={() => setShowBreathing(true)}
             style={{ opacity: 0.7 }}
           >

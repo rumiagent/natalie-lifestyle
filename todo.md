@@ -25,6 +25,6 @@
 ## Phase 3: Polish & Serenity (Current)
 - [x] Restore and harmonize global styles in `App.css`
 - [x] Add inviting \"soft-pulse\" animation to Breathing Guide trigger
-- [ ] Implement weather-aware theme shifts (e.g., softer tones for rainy days)
+- [x] Implement weather-aware theme shifts (e.g., softer tones for rainy days)
 - [x] Create \"Digital Declutter\" mode (hides non-essential UI for meditation)
 - [x] Add a \"Daily Zen\" rotating footer message
