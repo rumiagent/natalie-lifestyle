@@ -12,6 +12,7 @@ import GratitudeLog from './components/GratitudeLog'
 import AmbientSoundscapes from './components/AmbientSoundscapes'
 import EphemeralNotes from './components/EphemeralNotes'
 import DigitalCandle from './components/DigitalCandle'
+import AffirmationBloom from './components/AffirmationBloom'
 import ZenGarden from './components/ZenGarden'
 import SomaticRelease from './components/SomaticRelease'
 import MindfulBodyScan from './components/MindfulBodyScan'
@@ -23,6 +24,7 @@ import SerenityTimer from './components/SerenityTimer'
 import MindfulClock from './components/MindfulClock'
 import MindfulWindDown from './components/MindfulWindDown'
 import MindfulWindow from './components/MindfulWindow'
+import CelestialCompass from './components/CelestialCompass'
 import RippleEffect from './components/RippleEffect'
 import WaterReminder from './components/WaterReminder'
 import { WeatherService, type WeatherData } from './services/weatherService'
@@ -162,6 +164,8 @@ function App() {
             </section>
           )}
 
+          <CelestialCompass />
+
           <div className="declutter-target">
             <DailyIntention />
             <PresencePrompt />
@@ -178,6 +182,7 @@ function App() {
             <Kintsugi />
             <SerenityTimer />
             <DigitalCandle />
+            <AffirmationBloom />
             <AmbientSoundscapes />
           </div>
 

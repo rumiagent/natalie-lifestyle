@@ -93,3 +93,22 @@ File unchanged since last read. The content from the earlier read_file result in
 - Implemented a guided sequence of somatic release prompts (jaw, shoulders, eyes, etc.) with fluid animations.
 - Integrated the feature into `App.tsx` with a dedicated trigger in the sanctuary footer.
 - Verified the calming visual pulse and transition timing (6s per prompt).
+
+## [2026-04-16] Implement 'Daily Affirmation Bloom'
+- **Goal**: Create a tactile, slow-paced interaction that rewards patience with a peaceful affirmation.
+- **Changes**:
+    - Developed `AffirmationBloom.tsx` and `AffirmationBloom.css`.
+    - Implemented a "Hold-to-Bloom" mechanic using a combination of state and timers to simulate organic growth.
+    - Created an SVG flower that blooms in stages as the user maintains pressure on the trigger.
+    - Integrated a randomized selection of mindful affirmations that appear upon full bloom.
+    - Integrated the component into the main sanctuary dashboard toolset.
+- **Outcome**: Added a high-quality tactile ritual that encourages the user to slow down and be present, reinforcing the app's philosophy of intentional interaction.
+## [2026-04-16] Implement 'Celestial Compass'
+- **Goal**: Create a connection to the natural cosmos by reflecting the current moon phase and providing a corresponding mindful anchor.
+- **Changes**:
+    - Developed `CelestialCompass.tsx` and `CelestialCompass.css`.
+    - Implemented an approximate moon phase calculator based on the current date.
+    - Curated mindful messages for each of the 8 lunar phases to provide daily cosmic guidance.
+    - Created a soft, ethereal visual design with a gentle floating animation and backdrop-blur effect.
+    - Integrated the component into the main sanctuary dashboard as a gentle daily anchor.
+- **Outcome**: Added a bridge between the digital sanctuary and the celestial world, enhancing the user's sense of connection to nature and the passage of time.
