@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import './MindfulStillness.css'
+import { updateGardenMetric } from '../services/gardenService'
 
 const STILLNESS_THRESHOLD = 30000; // 30 seconds
 
@@ -14,6 +15,7 @@ const MindfulStillness = () => {
       clearTimeout(timeoutId);
       timeoutId = setTimeout(() => {
         setIsStill(true);
+        updateGardenMetric('stillnessMoss', 1);
       }, STILLNESS_THRESHOLD);
     };
 

@@ -200,3 +200,24 @@
     - Added a `body::before` pseudo-element in `index.css` with a soft radial gradient to simulate natural light filtering into the sanctuary.
     - Ensured the effect blends seamlessly with the existing Seasonal and Emotional theme engines.
 - **Outcome**: Created a subtle, atmospheric layer that grounds the user in the real-world passage of time, reducing the "digital vacuum" feel and promoting a deeper connection to their environment.
+
+## [2026-04-16] Implement 'Digital Incense'
+- **Goal**: Create a visual and tactile metaphor for scent and ritual to enhance the sensory sanctuary.
+- **Changes**:
+    - Developed `DigitalIncense.tsx` and `DigitalIncense.css`.
+    - Implemented a canvas-based organic smoke animation with physics-based particles.
+    - Added a scent selection system (Lavender, Sandalwood, Palo Santo, Citrus) that adjusts smoke color and flow characteristics.
+    - Integrated a "light incense" interaction to serve as a ritual starting point for mindfulness.
+    - Integrated the component into the main sanctuary dashboard alongside the Digital Candle.
+- **Outcome**: Added a sensory-focused focal point that encourages a slow, ritualistic approach to presence, further deepening the digital sanctuary experience.
+
+
+## [2026-04-16] Implement 'Sanctuary Garden'
+- **Goal**: Create a persistent visual representation of the user's mindfulness journey, where growth is rewarded by presence and stillness.
+- **Changes**:
+    - Developed `gardenService.ts` to track and persist growth metrics in localStorage.
+    - Created `SanctuaryGarden.tsx` and `SanctuaryGarden.css` featuring a canvas-based organic moss growth visual.
+    - Integrated the garden into the main sanctuary dashboard with a dedicated access trigger in the footer.
+    - Connected `MindfulStillness.tsx` to the garden, allowing 'Stillness Moss' to grow automatically when the user is present and still.
+    - Restored `App.tsx` from Git history after discovering a file corruption issue.
+- **Outcome**: Added a living, evolving element to the sanctuary, encouraging long-term engagement with mindfulness practices and rewarding the act of simply being.
