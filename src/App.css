@@ -573,3 +573,132 @@ main > div,
   font-style: italic;
   transition: all 0.8s ease;
 }
+
+/* Ambient Sound Mixer */
+.soundscapes-container {
+  margin: 4rem 0;
+  padding: 3rem 2rem;
+  border-radius: 32px;
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-border);
+  text-align: center;
+  transition: all 0.5s ease;
+}
+
+.soundscapes-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.soundscapes-subtitle {
+  font-size: 0.9rem;
+  opacity: 0.5;
+  margin-bottom: 2.5rem;
+}
+
+.sound-mixer-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.sound-mixer-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-radius: 20px;
+  background: transparent;
+  transition: all 0.4s ease;
+  border: 1px solid transparent;
+}
+
+.sound-mixer-row.active {
+  background: var(--bg);
+  border-color: var(--border);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+.sound-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  width: 100%;
+  justify-content: center;
+  transition: opacity 0.2s ease;
+}
+
+.sound-info:hover {
+  opacity: 0.8;
+}
+
+.sound-icon {
+  font-size: 1.2rem;
+}
+
+.sound-label {
+  font-size: 1rem;
+  color: var(--text);
+  flex: 1;
+  text-align: center;
+}
+
+.toggle-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+.toggle-indicator.on {
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+}
+
+.toggle-indicator.off {
+  background: transparent;
+}
+
+.sound-volume-slider {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  animation: fadeIn 0.4s ease;
+}
+
+.sound-volume-slider input[type="range"] {
+  width: 150px;
+  accent-color: var(--accent);
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.sound-volume-slider input[type="range"]:hover {
+  opacity: 1;
+}
+
+.stop-all-btn {
+  margin-top: 2.5rem;
+  background: none;
+  border: 1px solid var(--border);
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  color: var(--text);
+  opacity: 0.4;
+  transition: all 0.3s ease;
+}
+
+.stop-all-btn:hover {
+  opacity: 0.8;
+  border-color: var(--accent);
+}

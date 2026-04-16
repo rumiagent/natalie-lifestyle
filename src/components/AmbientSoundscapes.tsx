@@ -17,7 +17,7 @@ const SOUNDS: SoundOption[] = [
   { 
     id: 'forest', 
     label: 'Quiet Forest', 
-    url: 'https://cdn.pixabay.com/audio/2022/03/10/audio_c6c8a7657a.mp3', // Placeholder if not working
+    url: 'https://cdn.pixabay.com/audio/2022/03/10/audio_c6c8a7657a.mp3', 
     icon: '🌲' 
   },
   { 
@@ -32,103 +32,111 @@ const SOUNDS: SoundOption[] = [
     url: 'https://cdn.pixabay.com/audio/2022/03/10/audio_c6c8a7657b.mp3', 
     icon: '🌬️' 
   },
+  { 
+    id: 'fire', 
+    label: 'Crackling Fire', 
+    url: 'https://cdn.pixabay.com/audio/2022/01/18/audio_d0c6ff5787.mp3', 
+    icon: '🔥' 
+  },
 ];
 
-// Note: The URLs above are illustrative. In a production app, 
-// we would bundle these assets or use a reliable CDN.
-
 const AmbientSoundscapes: React.FC = () => {
-  const [activeSound, setActiveSound] = useState<string | null>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [volume, setVolume] = useState(0.5);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [activeSounds, setActiveSounds] = useState<Record<string, number>>({});
+  const audioRefs = useRef<Record<string, HTMLAudioElement>>({});
 
   useEffect(() => {
-    const audio = new Audio();
-    audio.loop = true;
-    audioRef.current = audio;
+    // Initialize audio objects
+    SOUNDS.forEach(sound => {
+      const audio = new Audio(sound.url);
+      audio.loop = true;
+      audioRefs.current[sound.id] = audio;
+    });
 
     return () => {
-      audio.pause();
-      audio.src = '';
+      // Cleanup all audio objects
+      Object.values(audioRefs.current).forEach(audio => {
+        audio.pause();
+        audio.src = '';
+      });
     };
   }, []);
 
   useEffect(() => {
-    if (audioRef.current && activeSound) {
-      const sound = SOUNDS.find(s => s.id === activeSound);
-      if (sound) {
-        audioRef.current.src = sound.url;
-        if (isPlaying) {
-          audioRef.current.play().catch(e => console.log('Audio playback failed:', e));
+    // Sync audio playback and volume with state
+    SOUNDS.forEach(sound => {
+      const audio = audioRefs.current[sound.id];
+      if (!audio) return;
+
+      const volume = activeSounds[sound.id];
+      if (volume !== undefined) {
+        audio.volume = volume;
+        if (audio.paused) {
+          audio.play().catch(e => console.log(`Audio playback failed for ${sound.id}:`, e));
         }
-      }
-    }
-  }, [activeSound]);
-
-  useEffect(() => {
-    if (audioRef.current) {
-      if (isPlaying) {
-        audioRef.current.play().catch(e => console.log('Audio playback failed:', e));
       } else {
-        audioRef.current.pause();
+        audio.pause();
       }
-    }
-  }, [isPlaying]);
-
-  useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.volume = volume;
-    }
-  }, [volume]);
+    });
+  }, [activeSounds]);
 
   const toggleSound = (id: string) => {
-    if (activeSound === id) {
-      setIsPlaying(!isPlaying);
-    } else {
-      setActiveSound(id);
-      setIsPlaying(true);
-    }
+    setActiveSounds(prev => {
+      const next = { ...prev };
+      if (next[id] !== undefined) {
+        delete next[id];
+      } else {
+        next[id] = 0.5; // Default volume when turning on
+      }
+      return next;
+    });
+  };
+
+  const updateVolume = (id: string, volume: number) => {
+    setActiveSounds(prev => ({
+      ...prev,
+      [id]: volume
+    }));
   };
 
   return (
     <section className="soundscapes-container">
-      <h3 className="soundscapes-title">Ambient Soundscapes</h3>
+      <h3 className="soundscapes-title">Ambient Sound Mixer</h3>
+      <p className="soundscapes-subtitle">Blend your sanctuary</p>
       
-      <div className="sound-grid">
-        {SOUNDS.map(sound => (
-          <button 
-            key={sound.id} 
-            className={`sound-btn ${activeSound === sound.id ? 'active' : ''}`}
-            onClick={() => toggleSound(sound.id)}
-          >
-            <span className="sound-icon">{sound.icon}</span>
-            <span className="sound-label">{sound.label}</span>
-          </button>
-        ))}
-      </div>
+      <div className="sound-mixer-grid">
+        {SOUNDS.map(sound => {
+          const isActive = activeSounds[sound.id] !== undefined;
+          const volume = activeSounds[sound.id] || 0;
 
-      {activeSound && (
-        <div className="sound-controls">
-          <button 
-            className="play-pause-btn" 
-            onClick={() => setIsPlaying(!isPlaying)}
-          >
-            {isPlaying ? 'Pause' : 'Play'}
-          </button>
-          
-          <div className="volume-control">
-            <span className="volume-label">Volume</span>
-            <input 
-              type="range" 
-              min="0" 
-              max="1" 
-              step="0.01" 
-              value={volume} 
-              onChange={(e) => setVolume(parseFloat(e.target.value))}
-            />
-          </div>
-        </div>
+          return (
+            <div key={sound.id} className={`sound-mixer-row ${isActive ? 'active' : ''}`}>
+              <div className="sound-info" onClick={() => toggleSound(sound.id)}>
+                <span className="sound-icon">{sound.icon}</span>
+                <span className="sound-label">{sound.label}</span>
+                <div className={`toggle-indicator ${isActive ? 'on' : 'off'}`} />
+              </div>
+              
+              {isActive && (
+                <div className="sound-volume-slider">
+                  <input 
+                    type="range" 
+                    min="0" 
+                    max="1" 
+                    step="0.01" 
+                    value={volume} 
+                    onChange={(e) => updateVolume(sound.id, parseFloat(e.target.value))}
+                  />
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+      
+      {Object.keys(activeSounds).length > 0 && (
+        <button className="stop-all-btn" onClick={() => setActiveSounds({})}>
+          Clear All
+        </button>
       )}
     </section>
   );
