@@ -1,4 +1,3 @@
-File unchanged since last read. The content from the earlier read_file result in this conversation is still current — refer to that instead of re-reading.
 ## [2026-04-15] Implement 'Gentle Presence Ripple'
 - **Goal**: Add a subtle, organic background animation to enhance the feeling of serenity and presence.
 - **Changes**:
@@ -6,3 +5,12 @@ File unchanged since last read. The content from the earlier read_file result in
     - Integrated ripple elements into `App.tsx` to provide a soft, breathing visual layer behind the main content.
     - Ensured animations are unobtrusive with low opacity and fluid timing (12s and 18s cycles).
 - **Outcome**: The app now possesses a living, breathing quality that subtly reinforces the mindful aesthetic without distracting the user.
+
+## [2026-04-15] Implement 'Ephemeral Notes'
+- **Goal**: Create a space for users to release fleeting thoughts, promoting the practice of letting go.
+- **Changes**:
+    - Developed `EphemeralNotes.tsx` component with a 'release' mechanism.
+    - Implemented automatic fading and removal of notes over a 30-second cycle to simulate sand-writing.
+    - Added soft, ethereal styling in `App.css` with fade-in animations.
+    - Integrated the component into the main dashboard, providing a reflective closing activity.
+- **Outcome**: Added a unique, mindful interaction that encourages emotional release and complements the 'digital sanctuary' vision.

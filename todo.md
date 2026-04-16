@@ -29,3 +29,5 @@
 - [x] Create \"Digital Declutter\" mode (hides non-essential UI for meditation)
 - [x] Add a \"Daily Zen\" rotating footer message
 - [x] Implement 'Gentle Presence Ripple' background animation
+- [x] Implement 'Ephemeral Notes' (Digital Sand-Writing for letting go of thoughts)
+

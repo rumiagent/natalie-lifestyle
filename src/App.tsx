@@ -9,6 +9,7 @@ import MindfulRituals from './components/MindfulRituals'
 import MindfulRecipes from './components/MindfulRecipes'
 import GratitudeLog from './components/GratitudeLog'
 import AmbientSoundscapes from './components/AmbientSoundscapes'
+import EphemeralNotes from './components/EphemeralNotes'
 import { WeatherService, type WeatherData } from './services/weatherService'
 
 function App() {
@@ -144,6 +145,7 @@ function App() {
           <MindfulRituals />
           <MindfulRecipes />
           <GratitudeLog />
+          <EphemeralNotes />
           <AmbientSoundscapes />
         </div>
 
