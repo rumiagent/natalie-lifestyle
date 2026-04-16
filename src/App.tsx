@@ -14,6 +14,7 @@ function App() {
   const [time, setTime] = useState(new Date())
   const [moment, setMoment] = useState<MindfulnessMoment | null>(null)
   const [isTransitioning, setIsTransitioning] = useState(false)
+  const [isDecluttered, setIsDecluttered] = useState(false)
   const [showBreathing, setShowBreathing] = useState(false)
   const [zenMessage, setZenMessage] = useState(ZEN_MESSAGES[0])
   const [zenTransitioning, setZenTransitioning] = useState(false)
@@ -21,7 +22,6 @@ function App() {
   useEffect(() => {
     const timer = setInterval(() => setTime(new Date()), 1000)
     
-    // Set initial moment based on date for consistency throughout the day
     const dayOfYear = Math.floor((new Date().getTime() - new Date(new Date().getFullYear(), 0, 0).getTime()) / 86400000)
     setMoment(MINDFULNESS_MOMENTS[dayOfYear % MINDFULNESS_MOMENTS.length])
     
@@ -85,14 +85,23 @@ function App() {
     <div className="fade-in">
       {showBreathing && <BreathingGuide onClose={() => setShowBreathing(false)} />}
       
-      <header style={{ marginBottom: '4rem' }}>
+      <header style={{ marginBottom: '4rem', position: 'relative' }}>
+        <div style={{ position: 'absolute', right: 0, top: 0 }}>
+          <button 
+            className="moment-btn declutter-btn" 
+            onClick={() => setIsDecluttered(!isDecluttered)}
+            style={{ fontSize: '0.7rem', opacity: 0.5 }}
+          >
+            {isDecluttered ? 'Return to Sanctuary' : 'Digital Declutter'}
+          </button>
+        </div>
         <p style={{ fontSize: '1.2rem', opacity: 0.8, marginBottom: '0.5rem' }}>
           {formatTime(time)}
         </p>
         <h1>{getGreeting()}, Natalie.</h1>
       </header>
 
-      <main style={{ maxWidth: '500px', textAlign: 'center' }}>
+      <main style={{ maxWidth: '500px', textAlign: 'center' }} className={isDecluttered ? 'decluttered-main' : ''}>
         {moment && (
           <section className="moment-of-peace">
             <h2 className="moment-title">
@@ -108,18 +117,22 @@ function App() {
           </section>
         )}
 
-        <DailyIntention />
-        <PresencePrompt />
-        <TodayFocus />
-        <MindfulRituals />
-        <MindfulRecipes />
-        <GratitudeLog />
-        <AmbientSoundscapes />
+        <div className="declutter-target">
+          <DailyIntention />
+          <PresencePrompt />
+          <TodayFocus />
+          <MindfulRituals />
+          <MindfulRecipes />
+          <GratitudeLog />
+          <AmbientSoundscapes />
+        </div>
 
         <footer style={{ opacity: 0.6, fontSize: '0.9rem', marginTop: '2rem' }}>
-          <p className={`zen-message ${zenTransitioning ? 'fade-out' : 'fade-in-text'}`} style={{ marginBottom: '1rem' }}>
-            {zenMessage}
-          </p>
+          <div className="declutter-target">
+            <p className={`zen-message ${zenTransitioning ? 'fade-out' : 'fade-in-text'}`} style={{ marginBottom: '1rem' }}>
+              {zenMessage}
+            </p>
+          </div>
           <button 
             className="moment-btn breathing-btn-pulse" 
             onClick={() => setShowBreathing(true)}

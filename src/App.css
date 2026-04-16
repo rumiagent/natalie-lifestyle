@@ -365,8 +365,32 @@
   border-color: var(--accent);
   background: var(--bg);
 }
+.declutter-btn {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 
-/* General spacing between components in App.tsx */
+.declutter-btn:hover {
+  opacity: 1 !important;
+  border-color: var(--accent);
+}
+
+/* Smooth transitions for decluttering */
+.declutter-target {
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1;
+  transform: scale(1);
+}
+
+.decluttered-main .declutter-target {
+  opacity: 0;
+  transform: scale(0.98);
+  pointer-events: none;
+  height: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
 main > section, 
 main > div, 
 main > footer {
