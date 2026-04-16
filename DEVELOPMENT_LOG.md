@@ -247,3 +247,11 @@
 - Created MindfulReflection.tsx for interactive, mindful journaling prompts.
 - Enhanced MindfulRitualFlow.tsx to support multiple ritual types ('morning' and 'nightly').
 - Integrated 'Begin Nightly Reflection' trigger in the app footer.
+
+## [2026-04-16] Implement 'Soft-Chime Auditory Feedback'
+- **Goal**: Enhance the ritual experience by adding gentle auditory cues that signal transitions between mindful practices.
+- **Changes**:
+    - Developed `MindfulAudioService.ts` using the Web Audio API to synthesize a high-quality "Zen Chime" (528Hz Solfeggio frequency) without relying on external assets.
+    - Integrated the chime trigger into `MindfulRitualFlow.tsx`, ensuring a soft auditory anchor is played each time the user progresses to the next step of a ritual.
+    - Implemented a soft attack and exponential decay envelope to ensure the sound is organic and unobtrusive.
+- **Outcome**: Added a subtle sensory layer to the ritual flow, reinforcing the app's commitment to a holistic, calming user experience.

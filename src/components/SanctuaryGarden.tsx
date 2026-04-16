@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './SanctuaryGarden.css';
-import { getGardenState, updateGardenMetric } from '../services/gardenService';
+import { getGardenState, updateGardenMetric, updateRitualStreak } from '../services/gardenService';
 
 const SanctuaryGarden: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -42,10 +42,31 @@ const SanctuaryGarden: React.FC<{ onClose: () => void }> = ({ onClose }) => {
       ctx.globalAlpha = 1.0;
     };
 
+    const drawStreakGlimmer = (streak: number) => {
+      const glimmerCount = Math.min(streak * 5, 100);
+      const colors = ['#fdfbf7', '#fefae0', '#fdf2d5'];
+
+      for (let i = 0; i < glimmerCount; i++) {
+        const x = (Math.sin(i * 987.654) * 43758.5453) % 1 * canvas.width;
+        const y = (Math.cos(i * 123.456) * 43758.5453) % 1 * canvas.height;
+        const radius = 1 + (Math.sin(i) * 1);
+        
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, Math.PI * 2);
+        ctx.fillStyle = colors[i % colors.length];
+        ctx.globalAlpha = 0.8;
+        ctx.fill();
+        ctx.closePath();
+      }
+      ctx.globalAlpha = 1.0;
+    };
+
     drawMoss(state.stillnessMoss);
+    drawStreakGlimmer(state.ritualStreak);
   }, [state]);
 
   const tendGarden = () => {
+    updateRitualStreak();
     const newState = updateGardenMetric('stillnessMoss', 10);
     setState({ ...newState });
   };
