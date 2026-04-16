@@ -23,14 +23,15 @@
 - [ ] Integration with Home Sensors (if available)
 
 ## Phase 3: Polish & Serenity (Current)
-- [x] Restore and harmonize global styles in `App.css`
-- [x] Add inviting \"soft-pulse\" animation to Breathing Guide trigger
-- [x] Implement weather-aware theme shifts (e.g., softer tones for rainy days)
-- [x] Create \"Digital Declutter\" mode (hides non-essential UI for meditation)
-- [x] Add a \"Daily Zen\" rotating footer message
-- [x] Implement 'Gentle Presence Ripple' background animation
-- [x] Implement 'Ephemeral Notes' (Digital Sand-Writing for letting go of thoughts)
-- [x] Implement 'Digital Candle' mindful focal point
-- [x] Implement 'Mindful Transition' entry sequence
-- [x] Implement 'Mindful Clock' with slow-fade transitions and organic pulsing
+|- [x] Restore and harmonize global styles in `App.css`
+|- [x] Add inviting \"soft-pulse\" animation to Breathing Guide trigger
+|- [x] Implement weather-aware theme shifts (e.g., softer tones for rainy days)
+|- [x] Create \"Digital Declutter\" mode (hides non-essential UI for meditation)
+|- [x] Add a \"Daily Zen\" rotating footer message
+|- [x] Implement 'Gentle Presence Ripple' background animation
+|- [x] Implement 'Ephemeral Notes' (Digital Sand-Writing for letting go of thoughts)
+|- [x] Implement 'Digital Candle' mindful focal point
+|- [x] Implement 'Mindful Transition' entry sequence
+|- [x] Implement 'Mindful Clock' with slow-fade transitions and organic pulsing
+|- [x] Implement 'Mindful Body Scan' somatic grounding guide
 
