@@ -13,6 +13,7 @@ import AmbientSoundscapes from './components/AmbientSoundscapes'
 import EphemeralNotes from './components/EphemeralNotes'
 import DigitalCandle from './components/DigitalCandle'
 import AffirmationBloom from './components/AffirmationBloom'
+import PoetryCorner from './components/PoetryCorner'
 import ZenGarden from './components/ZenGarden'
 import SomaticRelease from './components/SomaticRelease'
 import MindfulBodyScan from './components/MindfulBodyScan'
@@ -186,6 +187,7 @@ function App() {
             <SerenityTimer />
             <DigitalCandle />
             <AffirmationBloom />
+            <PoetryCorner />
             <AmbientSoundscapes />
           </div>
 
