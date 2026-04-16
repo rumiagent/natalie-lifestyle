@@ -107,6 +107,21 @@ function App() {
     else season = 'season-winter';
     
     document.body.className = `${theme} ${season} mood-${mood}`
+    
+    const hour = time.getHours();
+    const minute = time.getMinutes();
+    const totalMinutes = hour * 60 + minute;
+    
+    let glowColor = 'rgba(26, 26, 46, 0.15)'; // Default Night
+    if (totalMinutes >= 360 && totalMinutes < 540) { // 6am - 9am
+      glowColor = 'rgba(255, 235, 210, 0.15)';
+    } else if (totalMinutes >= 540 && totalMinutes < 960) { // 9am - 4pm
+      glowColor = 'rgba(224, 247, 250, 0.1)';
+    } else if (totalMinutes >= 960 && totalMinutes < 1140) { // 4pm - 7pm
+      glowColor = 'rgba(255, 209, 169, 0.2)';
+    }
+    
+    document.body.style.setProperty('--circadian-glow', glowColor);
   }, [time, weather])
 
   const refreshMoment = () => {
