@@ -139,3 +139,19 @@ File unchanged since last read. The content from the earlier read_file result in
     - Integrated the poetic description into the `App.tsx` dashboard, displaying it subtly beneath the daily greeting.
     - Added custom CSS (`.weather-poetic-desc`) to ensure the text blends seamlessly with the soft, minimalist aesthetic.
 - **Outcome**: Enhanced the environmental awareness of the app, turning a utility (weather) into a moment of mindfulness.
+
+## [2026-04-16] Implement 'Mindful Poetry Corner'
+- Created a curated library of mindful poems and haikus.
+- Implemented a slow-reveal mechanism where lines fade in every 3 seconds to encourage slow reading.
+- Added smooth transitions and minimalist styling consistent with the sanctuary aesthetic.
+- Integrated into the main application flow.
+
+## [2026-04-16] Implement 'Mindful Stillness'
+- **Goal**: Reward non-interaction with the device, creating a space for true stillness and presence.
+- **Changes**:
+    - Developed `MindfulStillness.tsx` and `MindfulStillness.css`.
+    - Implemented an activity tracker that monitors mouse movement, key presses, and touch events.
+    - Created a "Stillness Bloom" visual: a gentle, organic flower-like shape that fades in after 30 seconds of inactivity.
+    - Added a subtle, fading message: "A moment of stillness..." to acknowledge the peace.
+    - Integrated the component as a global overlay in `App.tsx`.
+- **Outcome**: Added a feature that actively encourages the user to step away from interaction, directly challenging the attention economy and reinforcing the app's purpose as a digital sanctuary.

@@ -24,10 +24,10 @@
 
 ## Phase 3: Polish & Serenity (Current)
 - [x] Restore and harmonize global styles in `App.css`
-- [x] Add inviting "soft-pulse" animation to Breathing Guide trigger
+- [x] Add inviting \"soft-pulse\" animation to Breathing Guide trigger
 - [x] Implement weather-aware theme shifts (e.g., softer tones for rainy days)
-- [x] Create "Digital Declutter" mode (hides non-essential UI for meditation)
-- [x] Add a "Daily Zen" rotating footer message
+- [x] Create \"Digital Declutter\" mode (hides non-essential UI for meditation)
+- [x] Add a \"Daily Zen\" rotating footer message
 - [x] Implement 'Gentle Presence Ripple' background animation
 - [x] Implement 'Ephemeral Notes' (Digital Sand-Writing for letting go of thoughts)
 - [x] Implement 'Digital Candle' mindful focal point
@@ -49,3 +49,5 @@
 - [x] Implement 'Daily Affirmation Bloom' (Hold-to-bloom tactile ritual)
 - [x] Implement 'Celestial Compass' (Moon phase & cosmic mindful anchors)
 - [x] Implement 'Poetic Weather' descriptions
+- [x] Implement 'Mindful Poetry Corner' (Slow-reveal mindful poems)
+- [x] Implement 'Mindful Stillness' (Rewards non-interaction with a subtle bloom)

@@ -1,0 +1,66 @@
+.mindful-pause-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(245, 245, 235, 0.85); /* Soft cream overlay */
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 1.5s ease-out;
+}
+
+.mindful-pause-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.pause-circle {
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, #d1d5c3 0%, #b8bcad 100%); /* Soft sage gradient */
+  border-radius: 50%;
+  animation: breathe 8s ease-in-out infinite;
+  box-shadow: 0 0 40px rgba(184, 188, 173, 0.5);
+}
+
+.pause-text {
+  font-family: 'Georgia', serif;
+  font-size: 1.5rem;
+  color: #7a7e6d;
+  opacity: 0;
+  animation: textFade 8s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 1;
+  }
+}
+
+@keyframes textFade {
+  0%, 100% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  20%, 80% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

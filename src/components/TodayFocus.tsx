@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import MindfulPause from './MindfulPause';
 
 interface FocusItem {
   id: string;
@@ -9,6 +10,7 @@ interface FocusItem {
 const TodayFocus: React.FC = () => {
   const [items, setItems] = useState<FocusItem[]>([]);
   const [inputValue, setInputValue] = useState('');
+  const [isPausing, setIsPausing] = useState(false);
 
   useEffect(() => {
     const saved = localStorage.getItem('natalies-focus');
@@ -38,7 +40,16 @@ const TodayFocus: React.FC = () => {
   };
 
   const toggleItem = (id: string) => {
-    setItems(items.map(item => item.id === id ? { ...item, completed: !item.completed } : item));
+    setItems(items.map(item => {
+      if (item.id === id) {
+        const nextState = !item.completed;
+        if (nextState) {
+          setIsPausing(true);
+        }
+        return { ...item, completed: nextState };
+      }
+      return item;
+    }));
   };
 
   const removeItem = (id: string) => {
@@ -77,6 +88,10 @@ const TodayFocus: React.FC = () => {
 
       {items.length === 0 && (
         <p className="focus-empty">The day is open. What truly matters right now?</p>
+      )}
+
+      {isPausing && (
+        <MindfulPause onComplete={() => setIsPausing(false)} />
       )}
     </section>
   );

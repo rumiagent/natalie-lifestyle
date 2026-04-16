@@ -28,6 +28,7 @@ import MindfulWindow from './components/MindfulWindow'
 import CelestialCompass from './components/CelestialCompass'
 import RippleEffect from './components/RippleEffect'
 import WaterReminder from './components/WaterReminder'
+import MindfulStillness from './components/MindfulStillness'
 import { WeatherService, type WeatherData } from './services/weatherService'
 
 function App() {
@@ -121,6 +122,7 @@ function App() {
     <>
       {!hasEntered && <MindfulEntry onComplete={() => setHasEntered(true)} />}
       <RippleEffect />
+      <MindfulStillness />
       <WaterReminder />
       <MindfulWindDown 
         isActive={isWindDownActive} 
