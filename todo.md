@@ -65,6 +65,6 @@
 
 ## Phase 5: Rituals & Intentionality
 - [x] Implement 'Mindful Ritual Flow' (Guided sequence of mindful practices)
-- [ ] Implement 'Nightly Reflection' guided ritual
+- [x] Implement 'Nightly Reflection' guided ritual
 - [ ] Add soft-chime auditory feedback for ritual transitions
 - [ ] Implement 'Ritual Streak' subtle visual indicator in Sanctuary Garden

@@ -241,3 +241,9 @@
 - Created MindfulRitualFlow.tsx and MindfulRitualFlow.css for a full-screen, immersive ritual experience.
 - Integrated a "Begin Morning Ritual" trigger in the app footer.
 - Added progress indicators (dots) to visualize the ritual journey.
+
+## 2026-04-16 - Nightly Reflection Ritual
+- Implemented 'Nightly Reflection' guided ritual to help users wind down.
+- Created MindfulReflection.tsx for interactive, mindful journaling prompts.
+- Enhanced MindfulRitualFlow.tsx to support multiple ritual types ('morning' and 'nightly').
+- Integrated 'Begin Nightly Reflection' trigger in the app footer.

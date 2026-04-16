@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './MindfulRitualFlow.css';
+import { MindfulAudioService } from '../services/audioService';
 import DailyIntention from './DailyIntention';
 import BreathingGuide from './BreathingGuide';
 import GratitudeLog from './GratitudeLog';
@@ -86,6 +87,7 @@ const MindfulRitualFlow: React.FC<MindfulRitualFlowProps> = ({ isOpen, onClose, 
   if (!isOpen) return null;
 
   const nextStep = () => {
+    MindfulAudioService.playZenChime();
     if (currentStep < steps.length - 1) {
       setCurrentStep(prev => prev + 1);
     } else {
