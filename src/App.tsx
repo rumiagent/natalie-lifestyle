@@ -47,6 +47,7 @@ function App() {
   const [showSomatic, setShowSomatic] = useState(false)
   const [showReflection, setShowReflection] = useState(false)
   const [showRitual, setShowRitual] = useState(false)
+  const [ritualType, setRitualType] = useState<'morning' | 'nightly'>('morning')
   const [showGarden, setShowGarden] = useState(false)
   const [zenMessage, setZenMessage] = useState(ZEN_MESSAGES[0])
   const [sensors, setSensors] = useState({
@@ -142,6 +143,11 @@ function App() {
     return \"Good evening\"
   }
 
+  const startRitual = (type: 'morning' | 'nightly') => {
+    setRitualType(type);
+    setShowRitual(true);
+  };
+
   return (
     <>
       {!hasEntered && <MindfulEntry onComplete={() => setHasEntered(true)} />}
@@ -163,6 +169,7 @@ function App() {
       <MindfulRitualFlow 
         isOpen={showRitual} 
         onClose={() => setShowRitual(false)} 
+        type={ritualType}
       />
       {showGarden && <SanctuaryGarden onClose={() => setShowGarden(false)} />}\n      <SensorHub sensors={sensors} setSensors={setSensors} />
       {showSomatic && <SomaticRelease onClose={() => setShowSomatic(false)} />}\n      <div className={`fade-in ${hasEntered ? '' : 'hidden-entry'}`}>\n        <div className={`presence-ripple ${sensors.energy < 30 ? 'slow-ripple' : sensors.energy > 70 ? 'fast-ripple' : ''}`}></div>\n        <div className={`presence-ripple-secondary ${sensors.energy < 30 ? 'slow-ripple' : sensors.energy > 70 ? 'fast-ripple' : ''}`}></div>
@@ -249,10 +256,17 @@ function App() {
               </button>
               <button 
                 className="moment-btn" 
-                onClick={() => setShowRitual(true)}
+                onClick={() => startRitual('morning')}
                 style={{ opacity: 0.7 }}
               >
                 Begin Morning Ritual
+              </button>
+              <button 
+                className="moment-btn" 
+                onClick={() => startRitual('nightly')}
+                style={{ opacity: 0.7 }}
+              >
+                Begin Nightly Reflection
               </button>
               <button 
                 className="moment-btn" 
