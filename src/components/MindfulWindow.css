@@ -1,0 +1,86 @@
+.mindful-window-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 1.5s ease-in-out;
+  transition: opacity 1s ease-in-out;
+}
+
+.mindful-window-content {
+  text-align: center;
+  max-width: 600px;
+  padding: 2rem;
+  color: #5a5a5a;
+  font-family: 'Lora', serif;
+}
+
+.mindful-window-prompt {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  font-style: italic;
+  opacity: 0;
+  animation: fadeInUp 2s forwards 0.5s;
+}
+
+.mindful-window-timer {
+  width: 60px;
+  height: 60px;
+  border: 2px solid #a8b5a2;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #8a9a8a;
+  animation: softPulse 3s infinite ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes softPulse {
+  0% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.6; }
+}
+
+.mindful-window-exit {
+  margin-top: 2rem;
+  background: none;
+  border: 1px solid #ccc;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  color: #888;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+  opacity: 0.7;
+}
+
+.mindful-window-exit:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.5);
+}

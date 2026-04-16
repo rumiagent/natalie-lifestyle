@@ -20,6 +20,7 @@ import TeaCeremony from './components/TeaCeremony'
 import SerenityTimer from './components/SerenityTimer'
 import MindfulClock from './components/MindfulClock'
 import MindfulWindDown from './components/MindfulWindDown'
+import MindfulWindow from './components/MindfulWindow'
 import RippleEffect from './components/RippleEffect'
 import WaterReminder from './components/WaterReminder'
 import { WeatherService, type WeatherData } from './services/weatherService'
@@ -32,6 +33,7 @@ function App() {
   const [isDecluttered, setIsDecluttered] = useState(false)
   const [showBreathing, setShowBreathing] = useState(false)
   const [isWindDownActive, setIsWindDownActive] = useState(false)
+  const [showWindow, setShowWindow] = useState(false)
   const [zenMessage, setZenMessage] = useState(ZEN_MESSAGES[0])
   const [zenTransitioning, setZenTransitioning] = useState(false)
   const [weather, setWeather] = useState<WeatherData | null>(null)
@@ -118,8 +120,11 @@ function App() {
         isActive={isWindDownActive} 
         onClose={() => setIsWindDownActive(false)} 
       />
-      <div className={`fade-in ${hasEntered ? '' : 'hidden-entry'}`}>
-        <div className="presence-ripple"></div>
+      <MindfulWindow 
+        isOpen={showWindow} 
+        onClose={() => setShowWindow(false)} 
+      />
+      <div className={`fade-in ${hasEntered ? '' : 'hidden-entry'}`}>\n        <div className="presence-ripple"></div>
         <div className="presence-ripple-secondary"></div>
         {showBreathing && <BreathingGuide onClose={() => setShowBreathing(false)} />}
         
@@ -190,6 +195,13 @@ function App() {
                 style={{ opacity: 0.7 }}
               >
                 Begin Wind-Down
+              </button>
+              <button 
+                className="moment-btn" 
+                onClick={() => setShowWindow(true)}
+                style={{ opacity: 0.7 }}
+              >
+                Look Outside
               </button>
             </div>
           </footer>
