@@ -9,6 +9,7 @@ import TodayFocus from './components/TodayFocus'
 import MindfulRituals from './components/MindfulRituals'
 import MindfulRecipes from './components/MindfulRecipes'
 import GratitudeLog from './components/GratitudeLog'
+import MindfulRitualFlow from './components/MindfulRitualFlow'
 import AmbientSoundscapes from './components/AmbientSoundscapes'
 import EphemeralNotes from './components/EphemeralNotes'
 import DigitalCandle from './components/DigitalCandle'
@@ -45,6 +46,7 @@ function App() {
   const [showWindow, setShowWindow] = useState(false)
   const [showSomatic, setShowSomatic] = useState(false)
   const [showReflection, setShowReflection] = useState(false)
+  const [showRitual, setShowRitual] = useState(false)
   const [showGarden, setShowGarden] = useState(false)
   const [zenMessage, setZenMessage] = useState(ZEN_MESSAGES[0])
   const [sensors, setSensors] = useState({
@@ -158,6 +160,10 @@ function App() {
         isOpen={showReflection} 
         onClose={() => setShowReflection(false)} 
       />
+      <MindfulRitualFlow 
+        isOpen={showRitual} 
+        onClose={() => setShowRitual(false)} 
+      />
       {showGarden && <SanctuaryGarden onClose={() => setShowGarden(false)} />}\n      <SensorHub sensors={sensors} setSensors={setSensors} />
       {showSomatic && <SomaticRelease onClose={() => setShowSomatic(false)} />}\n      <div className={`fade-in ${hasEntered ? '' : 'hidden-entry'}`}>\n        <div className={`presence-ripple ${sensors.energy < 30 ? 'slow-ripple' : sensors.energy > 70 ? 'fast-ripple' : ''}`}></div>\n        <div className={`presence-ripple-secondary ${sensors.energy < 30 ? 'slow-ripple' : sensors.energy > 70 ? 'fast-ripple' : ''}`}></div>
         {showBreathing && <BreathingGuide onClose={() => setShowBreathing(false)} />}
@@ -228,42 +234,49 @@ function App() {
             </div>
             <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
               <button 
-                className=\"moment-btn breathing-btn-pulse\" 
+                className="moment-btn breathing-btn-pulse" 
                 onClick={() => setShowBreathing(true)}
                 style={{ opacity: 0.7 }}
               >
                 Begin Mindful Breathing
               </button>
               <button 
-                className=\"moment-btn\" 
+                className="moment-btn" 
                 onClick={() => setIsWindDownActive(true)}
                 style={{ opacity: 0.7 }}
               >
                 Begin Wind-Down
               </button>
               <button 
-                className=\"moment-btn\" 
+                className="moment-btn" 
+                onClick={() => setShowRitual(true)}
+                style={{ opacity: 0.7 }}
+              >
+                Begin Morning Ritual
+              </button>
+              <button 
+                className="moment-btn" 
                 onClick={() => setShowWindow(true)}
                 style={{ opacity: 0.7 }}
               >
                 Look Outside
               </button>
               <button 
-                className=\"moment-btn\" 
+                className="moment-btn" 
                 onClick={() => setShowSomatic(true)}
                 style={{ opacity: 0.7 }}
               >
                 Somatic Release
               </button>
               <button 
-                className=\"moment-btn\" 
+                className="moment-btn" 
                 onClick={() => setShowReflection(true)}
                 style={{ opacity: 0.7 }}
               >
                 Reflect
               </button>
               <button 
-                className=\"moment-btn\" 
+                className="moment-btn" 
                 onClick={() => setShowGarden(true)}
                 style={{ opacity: 0.7 }}
               >

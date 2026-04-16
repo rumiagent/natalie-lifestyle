@@ -62,3 +62,9 @@
 - [x] Implement Circadian Rhythm Lighting Sync (Time-of-day visual glow)
 - [x] Implement 'Digital Incense' mindful focal point
 - [x] Implement 'Sanctuary Garden' (Persistent growth from mindful presence)
+
+## Phase 5: Rituals & Intentionality
+- [x] Implement 'Mindful Ritual Flow' (Guided sequence of mindful practices)
+- [ ] Implement 'Nightly Reflection' guided ritual
+- [ ] Add soft-chime auditory feedback for ritual transitions
+- [ ] Implement 'Ritual Streak' subtle visual indicator in Sanctuary Garden
