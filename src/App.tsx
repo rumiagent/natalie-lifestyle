@@ -100,7 +100,9 @@ function App() {
   }
 
   return (
-    <div className=\"fade-in\">
+    <div className="fade-in">
+      <div className="presence-ripple"></div>
+      <div className="presence-ripple-secondary"></div>
       {showBreathing && <BreathingGuide onClose={() => setShowBreathing(false)} />}
       
       <header style={{ marginBottom: '4rem', position: 'relative' }}>

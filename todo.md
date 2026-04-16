@@ -28,3 +28,4 @@
 - [x] Implement weather-aware theme shifts (e.g., softer tones for rainy days)
 - [x] Create \"Digital Declutter\" mode (hides non-essential UI for meditation)
 - [x] Add a \"Daily Zen\" rotating footer message
+- [x] Implement 'Gentle Presence Ripple' background animation
