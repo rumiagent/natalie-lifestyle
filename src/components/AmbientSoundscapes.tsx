@@ -92,38 +92,38 @@ const AmbientSoundscapes: React.FC = () => {
   };
 
   return (
-    <section className=\"soundscapes-container\">
-      <h3 className=\"soundscapes-title\">Ambient Soundscapes</h3>
+    <section className="soundscapes-container">
+      <h3 className="soundscapes-title">Ambient Soundscapes</h3>
       
-      <div className=\"sound-grid\">
+      <div className="sound-grid">
         {SOUNDS.map(sound => (
           <button 
             key={sound.id} 
             className={`sound-btn ${activeSound === sound.id ? 'active' : ''}`}
             onClick={() => toggleSound(sound.id)}
           >
-            <span className=\"sound-icon\">{sound.icon}</span>
-            <span className=\"sound-label\">{sound.label}</span>
+            <span className="sound-icon">{sound.icon}</span>
+            <span className="sound-label">{sound.label}</span>
           </button>
         ))}
       </div>
 
       {activeSound && (
-        <div className=\"sound-controls\">
+        <div className="sound-controls">
           <button 
-            className=\"play-pause-btn\" 
+            className="play-pause-btn" 
             onClick={() => setIsPlaying(!isPlaying)}
           >
             {isPlaying ? 'Pause' : 'Play'}
           </button>
           
-          <div className=\"volume-control\">
-            <span className=\"volume-label\">Volume</span>
+          <div className="volume-control">
+            <span className="volume-label">Volume</span>
             <input 
-              type=\"range\" 
-              min=\"0\" 
-              max=\"1\" 
-              step=\"0.01\" 
+              type="range" 
+              min="0" 
+              max="1" 
+              step="0.01" 
               value={volume} 
               onChange={(e) => setVolume(parseFloat(e.target.value))}
             />

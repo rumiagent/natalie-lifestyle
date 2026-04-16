@@ -24,18 +24,18 @@ export interface PresencePrompt {
 }
 
 export const PRESENCE_PROMPTS: PresencePrompt[] = [
-  { text: \"Notice the weight of your feet on the floor. Feel the connection to the earth.\", focusArea: 'touch' },
-  { text: \"Find three things in your room that are a shade of green or blue.\", focusArea: 'sight' },
-  { text: \"Listen for the furthest sound you can possibly hear. Just listen.\", focusArea: 'sound' },
-  { text: \"Notice the temperature of the air on your skin. Is it cool, warm, or neutral?\", focusArea: 'touch' },
-  { text: \"Find something nearby that has a texture you enjoy. Touch it gently.\", focusArea: 'touch' },
-  { text: \"Observe the way the light is falling in the room right now.\", focusArea: 'sight' },
-  { text: \"Notice the feeling of your breath moving in and out of your nostrils.\", focusArea: 'overall' },
-  { text: \"Look at a nearby object. Notice its shape and color without naming it.\", focusArea: 'sight' },
+  { text: "Notice the weight of your feet on the floor. Feel the connection to the earth.", focusArea: 'touch' },
+  { text: "Find three things in your room that are a shade of green or blue.", focusArea: 'sight' },
+  { text: "Listen for the furthest sound you can possibly hear. Just listen.", focusArea: 'sound' },
+  { text: "Notice the temperature of the air on your skin. Is it cool, warm, or neutral?", focusArea: 'touch' },
+  { text: "Find something nearby that has a texture you enjoy. Touch it gently.", focusArea: 'touch' },
+  { text: "Observe the way the light is falling in the room right now.", focusArea: 'sight' },
+  { text: "Notice the feeling of your breath moving in and out of your nostrils.", focusArea: 'overall' },
+  { text: "Look at a nearby object. Notice its shape and color without naming it.", focusArea: 'sight' },
 ];
 
 export const MINDFULNESS_MOMENTS: MindfulnessMoment[] = [
-  { text: \"Quiet the mind, and the soul will speak.\", type: 'quote', author: 'Unknown' },
+  { text: "Quiet the mind, and the soul will speak.", type: 'quote', author: 'Unknown' },
   { text: "Peace is a journey of a thousand miles and it must be taken one step at a time.", type: 'quote', author: 'Unknown' },
   { text: "Within you, there is a stillness and a sanctuary to which you can retreat at any time.", type: 'quote', author: 'Unknown' },
   { text: "The more tranquil a man becomes, the greater is his success.", type: 'quote', author: 'Unknown' },

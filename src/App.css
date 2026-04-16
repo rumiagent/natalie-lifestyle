@@ -89,6 +89,28 @@
   }
 }
 
+@keyframes interaction-ripple {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(4);
+    opacity: 0;
+  }
+}
+
+.interaction-ripple {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background: var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  animation: interaction-ripple 1s ease-out forwards;
+}
+
 .presence-ripple {
   position: fixed;
   top: 50%;

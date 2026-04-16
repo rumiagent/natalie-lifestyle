@@ -16,6 +16,7 @@ import MindfulBodyScan from './components/MindfulBodyScan'
 import MindfulListening from './components/MindfulListening'
 import MindfulObservation from './components/MindfulObservation'
 import MindfulClock from './components/MindfulClock'
+import RippleEffect from './components/RippleEffect'
 import { WeatherService, type WeatherData } from './services/weatherService'
 
 function App() {
@@ -106,6 +107,7 @@ function App() {
   return (
     <>
       {!hasEntered && <MindfulEntry onComplete={() => setHasEntered(true)} />}
+      <RippleEffect />
       <div className={`fade-in ${hasEntered ? '' : 'hidden-entry'}`}>
         <div className="presence-ripple"></div>
         <div className="presence-ripple-secondary"></div>
@@ -132,7 +134,7 @@ function App() {
                 {moment.type === 'quote' ? 'Moment of Peace' : 'Mindful Prompt'}
               </h2>
               <div className={`moment-content ${isTransitioning ? 'fade-out' : 'fade-in-text'}`}>
-                <p>\"{moment.text}\"</p>
+                <p>"{moment.text}"</p>
                 {moment.author && <span className="moment-author">— {moment.author}</span>}
               </div>
               <button className="moment-btn" onClick={refreshMoment}>
